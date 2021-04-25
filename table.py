@@ -4,7 +4,7 @@ class Table:
     self.lignes = list_lignes # list_lignes contiendra la liste des lignes de la tables
   
 
-  def ajouter_lignes(self , ligne, position=-1): # l'élément est par défaut ajoouté à la fin de la table 
+  def ajouter_lignes(self , ligne, position=-1): # l'élément est par défaut ajouté à la fin de la table 
     """ Cette fonction permet d'ajouter une ligne à une table à la position souhaitée """
     if len(ligne)==len(self.nom_colonnes):  # si on a bien un meme nombre de colonnes que la table de départ...
       self.lignes.insert(position, ligne) # on inserre la liste ne question à cette position
@@ -22,11 +22,34 @@ class Table:
     if position < len(self.nom_colonnes):
       self.nom_colonnes.remove(self.nom_colonnes[position])
       for i in range(len(self.lignes)):
-        self.lignes[i].remove(self.lignes[i][position])
-  
+        self.lignes[i].remove[self.lignes[i][position]]
+
+  def __str__(self):
+    affichage = ""
+    for nom_colonne in self.nom_colonnes[:-1]:
+      affichage=affichage + nom_colonne+"; "
+    affichage = affichage + self.nom_colonnes[-1] + "\n"
+    for ligne in self.lignes:
+      
+      affichage_liste = ""
+      for i in range(len(ligne)-1):
+        affichage_liste= affichage_liste+ "{0"+"["+str(i)+"]" + "} ; "
+      affichage_liste = affichage_liste + "{0"+"["+str(len(ligne)-1)+"]" + "} "
+      
+      liste_format = []
+      for i in ligne:
+        liste_format.append(i)
+      affichage_liste = affichage_liste.format(liste_format)
+      affichage = affichage + affichage_liste
+      affichage += "\n"
+      
+    return(affichage)
+
+        
+        
 
 
-
+    
 
 
 
