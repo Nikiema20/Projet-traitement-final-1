@@ -28,11 +28,11 @@ if __name__ == "__main__":
 
   table_covid_hospit_incid_reg = Table(nom_colonnes , list_lignes_covid_hospit_incid_reg)
    
-   # importation de la table donnees_hospitalieres_classe_age_covid
+  # importation de la table donnees_hospitalieres_classe_age_covid
   list_lignes_donnees_hospitalieres_classe_age_covid=[]
-   fich1 = open("donnees_hospitalieres_classe_age_covid.csv","r")
-   lect1=csv.reader(fich1 , delimiter=";")
-   for row in lect1 : 
+  fich1 = open("donnees_hospitalieres_classe_age_covid.csv","r")
+  lect1=csv.reader(fich1 , delimiter=";")
+  for row in lect1 : 
       ligne = [] # on rendra row  comme une liste
       ligne.append(row[0])
       ligne.append(row[1])
@@ -46,9 +46,9 @@ if __name__ == "__main__":
       ligne.append(int(row[5]))
       ligne.append(int(row[6]))
       list_lignes_donnees_hospitalieres_classe_age_covid.append(ligne)
-   nom_colonnes_donnees_hospitalieres_classe_age_covid = ["reg","cl_age90","jour","hosp","rea","rad","dc"]
-   table_donnees_hospitalieres_classe_age_covid = Table(list_lignes_donnees_hospitalieres_classe_age_covid,nom_colonnes_donnees_hospitalieres_classe_age_covid)
-   fich.close()
+  nom_colonnes_donnees_hospitalieres_classe_age_covid = ["reg","cl_age90","jour","hosp","rea","rad","dc"]
+  table_donnees_hospitalieres_classe_age_covid = Table(list_lignes_donnees_hospitalieres_classe_age_covid,nom_colonnes_donnees_hospitalieres_classe_age_covid)
+  fich.close()
       
    
 
