@@ -12,6 +12,7 @@ class Importation_donnee :
             covidreader = csv.reader(csvfile, delimiter= ';')
             for row in covidreader :
                 data.append(row)
+               
         return data
         
     def import_json(self):
