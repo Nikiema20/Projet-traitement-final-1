@@ -22,7 +22,7 @@ class Table:
     if position < len(self.nom_colonnes):
       self.nom_colonnes.remove(self.nom_colonnes[position])
       for i in range(len(self.lignes)):
-        self.lignes[i].remove[self.lignes[i][position]]
+        self.lignes[i].remove(self.lignes[i][position])
   
 
 
