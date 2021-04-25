@@ -52,9 +52,10 @@ if __name__ == "__main__":
   
   # creation de la table donnees_hospitalieres_covid
   
+  
   list_lignes_donnees_hospitalieres_covid=[]
   fich = open("donnees_hospitalieres_covid.csv","r")
-  lect2=csv.reader(fich1 , delimiter=";")
+  lect2=csv.reader(fich , delimiter=";")
   for row in lect2 : 
       ligne = [] # on rendra row  comme une liste
       ligne.append(row[0])
@@ -72,6 +73,33 @@ if __name__ == "__main__":
   nom_colonnes_donnees_hospitalieres_covid = ["departement","sexe","jour","hospitalisation","reanimation","rad","décès"]
   table_donnees_hospitalieres_covid = Table(list_lignes_donnees_hospitalieres_covid,nom_colonnes_donnees_hospitalieres_covid)
   fich.close()
+  
+  
+  list_lignes_donnees_hospitalieres_covid=[]
+  fich = open("donnees_hospitalieres_covid.csv","r")
+  lect2=csv.reader(fich , delimiter=";")
+  for row in lect2 : 
+      ligne = [] # on rendra row  comme une liste
+      ligne.append(row[0])
+      ligne.append(row[1])
+      annee =int( row[2][0:4]) # on retient l'année dans l'affichage de la date
+      mois = int(row[2][5:7])
+      jour= int(row[2][8:10])
+      date_ligne = date(annee , mois , jour)
+      ligne.append(date_ligne)
+      ligne.append(int(row[3]))
+      ligne.append(int(row[4]))
+      ligne.append(int(row[5]))
+      ligne.append(int(row[6]))
+      list_lignes_donnees_hospitalieres_covid.append(ligne)
+  nom_colonnes_donnees_hospitalieres_covid = ["departement","sexe","jour","hospitalisation","reanimation","rad","décès"]
+  table_donnees_hospitalieres_covid = Table(list_lignes_donnees_hospitalieres_covid,nom_colonnes_donnees_hospitalieres_covid)
+  fich.close()
+  
+  
+
+  
+
       
    
 
