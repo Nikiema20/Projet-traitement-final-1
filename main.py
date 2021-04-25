@@ -24,7 +24,7 @@ if __name__ == "__main__":
   fich.close()
   
 
-  nom_colonnes = ["jour", "nomReg", "numReg", "incid_rea"]
+  nom_colonnes = ["jour", "nom_region", "numero_region", "incid_rea"]
 
   table_covid_hospit_incid_reg = Table(nom_colonnes , list_lignes_covid_hospit_incid_reg)
    
@@ -46,7 +46,7 @@ if __name__ == "__main__":
       ligne.append(int(row[5]))
       ligne.append(int(row[6]))
       list_lignes_donnees_hospitalieres_classe_age_covid.append(ligne)
-  nom_colonnes_donnees_hospitalieres_classe_age_covid = ["reg","cl_age90","jour","hosp","rea","rad","dc"]
+  nom_colonnes_donnees_hospitalieres_classe_age_covid = ["reg","classe_age","jour","hospitalisation","reanimation","rad","décès"]
   table_donnees_hospitalieres_classe_age_covid = Table(list_lignes_donnees_hospitalieres_classe_age_covid,nom_colonnes_donnees_hospitalieres_classe_age_covid)
   fich.close()
       
