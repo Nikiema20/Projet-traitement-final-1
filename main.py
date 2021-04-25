@@ -21,7 +21,7 @@ if __name__ == "__main__":
     ligne.append(row[2])
     ligne.append(int(row[3]))
     list_lignes_covid_hospit_incid_reg.append(ligne)
-  fich.close
+  fich.close()
   
 
   nom_colonnes = ["jour", "nomReg", "numReg", "incid_rea"]
@@ -29,12 +29,26 @@ if __name__ == "__main__":
   table_covid_hospit_incid_reg = Table(nom_colonnes , list_lignes_covid_hospit_incid_reg)
    
    # importation de la table donnees_hospitalieres_classe_age_covid
-   list_lignes_donnees_hospitalieres_classe_age_covid=[]
+  list_lignes_donnees_hospitalieres_classe_age_covid=[]
    fich1 = open("donnees_hospitalieres_classe_age_covid.csv","r")
    lect1=csv.reader(fich1 , delimiter=";")
    for row in lect1 : 
       ligne = [] # on rendra row  comme une liste
-      ligne.append
+      ligne.append(row[0])
+      ligne.append(row[1])
+      annee =int( row[2][0:4]) # on retient l'année dans l'affichage de la date
+      mois = int(row[2][5:7])
+      jour= int(row[2][8:10])
+      date_ligne = date(annee , mois , jour)
+      ligne.append(date_ligne)
+      ligne.append(int(row[3]))
+      ligne.append(int(row[4]))
+      ligne.append(int(row[5]))
+      ligne.append(int(row[6]))
+      list_lignes_donnees_hospitalieres_classe_age_covid.append(ligne)
+   nom_colonnes_donnees_hospitalieres_classe_age_covid = ["reg","cl_age90","jour","hosp","rea","rad","dc"]
+   table_donnees_hospitalieres_classe_age_covid = Table(list_lignes_donnees_hospitalieres_classe_age_covid,nom_colonnes_donnees_hospitalieres_classe_age_covid)
+   fich.close()
       
    
 
