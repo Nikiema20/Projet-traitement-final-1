@@ -4,6 +4,7 @@ from table import Table
 from get_colonne import GetColonnes
 from transformation_temporelle import TransformationTemporelle
 from importation_donnee import Importation_donnee
+from transformation_spatiale import TransformationSpatiale
 
 #from graphique import Graphique
 #from clustering import Clustering
@@ -30,12 +31,14 @@ if __name__ == "__main__":
   d1= date(2021,1,1)
   d2= date(2021,1,31)
   b= TransformationTemporelle(d1,d2)
-  print(b.traiter_table(table_covid_hospit_incid_reg))
+ # print(b.traiter_table(table_covid_hospit_incid_reg)) departement
+  k= TransformationSpatiale(44)
+ # print(k.traiter_table(list_lignes_donnees_hospitalieres_covid, 'departement' ))
+  
   
   table_donnees_hospitalieres_classe_age_covid = Table(nom_colonnes_donnees_hospitalieres_classe_age_covid, list_lignes_donnees_hospitalieres_classe_age_covid)
   
   # importation de la table donnees_hospitalieres_classe_age_covid
-
   
   # creation de la table donnees_hospitalieres_covid
   
@@ -48,7 +51,7 @@ if __name__ == "__main__":
   #df1 = df.pop(0)
  # print(covid_hospit.import_csv())
   #print(df)
-  
+
  
 
   
