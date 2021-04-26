@@ -44,6 +44,9 @@ class Table:
       affichage += "\n"
       
     return(affichage)
+    
+   
+
 
         
         
