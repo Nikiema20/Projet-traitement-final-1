@@ -23,7 +23,7 @@ if __name__ == "__main__":
   d1= date(2021,1,1)
   d2= date(2021,1,31)
   b= TransformationTemporelle(d1,d2)
-  print(b.traiter_table(table_covid_hospit_incid_reg))
+  #print(b.traiter_table(table_covid_hospit_incid_reg))
   
   table_donnees_hospitalieres_classe_age_covid = Table(nom_colonnes_donnees_hospitalieres_classe_age_covid, list_lignes_donnees_hospitalieres_classe_age_covid)
   
