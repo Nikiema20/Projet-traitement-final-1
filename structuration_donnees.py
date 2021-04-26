@@ -21,6 +21,7 @@ for row in lect:
 fich.close()
 nom_colonnes_covid_hospit_incid_reg = ["jour", "nom_region", "numero_region", "reanimation"]
 
+
 # creation table 2 
 
 list_lignes_donnees_hospitalieres_classe_age_covid=[]
