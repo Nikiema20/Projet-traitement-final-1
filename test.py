@@ -3,7 +3,7 @@ from datetime import date
 from table import Table
 #from graphique import Graphique
 #from clustering import Clustering
-from test3 import list_lignes_donnees_hospitalieres_classe_age_covid
+#from test3 import list_lignes_donnees_hospitalieres_classe_age_covid
 
 
 if __name__ == "__main__":

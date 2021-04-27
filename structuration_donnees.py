@@ -65,3 +65,45 @@ for row in lect2 :
       ligne.append(int(row[6]))
       list_lignes_donnees_hospitalieres_covid.append(ligne)
 nom_colonnes_donnees_hospitalieres_covid = ["departement","sexe","jour","hospitalisation","reanimation","rad","décès"]
+fich.close()
+
+# creation table 4 
+list_lignes_donnees_hospitalieres_etablissements_covid=[]
+fich = open("donnees_hospitalieres_etablissements_covid.csv","r")
+lect3=csv.reader(fich , delimiter=";")
+for row in lect3 : 
+      ligne = [] # on rendra row  comme une liste
+      ligne.append(row[0])
+      annee =int( row[1][0:4]) # on retient l'année dans l'affichage de la date
+      mois = int(row[1][5:7])
+      jour= int(row[1][8:10])
+      date_ligne = date(annee , mois , jour)
+      ligne.append(date_ligne)
+      ligne.append(int(row[2]))
+      list_lignes_donnees_hospitalieres_etablissements_covid.append(ligne)
+nom_colonnes_donnees_hospitalieres_etablissements_covid = ["numero departement" , "jour", "nombre"]
+fich.close()
+
+
+list_lignes_donnees_hospitalieres_nouveaux_covid=[]
+fich = open("donnees_hospitalieres_nouveaux_covid.csv","r")
+lect4=csv.reader(fich , delimiter=";")
+for row in lect4 : 
+      ligne = [] # on rendra row  comme une liste
+      ligne.append(row[0])
+      annee =int( row[1][0:4]) # on retient l'année dans l'affichage de la date
+      mois = int(row[1][5:7])
+      jour= int(row[1][8:10])
+      date_ligne = date(annee , mois , jour)
+      ligne.append(date_ligne)
+      ligne.append(int(row[2]))
+      ligne.append(int(row[3]))
+      ligne.append(int(row[4]))
+      ligne.append(int(row[5]))
+      list_lignes_donnees_hospitalieres_nouveaux_covid.append(ligne)
+nom_colonnes_donnees_hospitalieres_nouveaux_covid = ["numero departement" , "jour", "incident hospitalisation" , "incident reanimation" , "incident décès" , "incident radio"]
+fich.close()
+
+
+    
+

@@ -1,5 +1,5 @@
-import csv ;  # importer le module csv de python
-import json ; # Importer le module json
+import csv   # importer le module csv de python
+import json  # Importer le module json
 class Importation_donnee :
     def __init__(self,folder, file_name):
         self.folder=folder
