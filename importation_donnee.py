@@ -6,13 +6,15 @@ class Importation_donnee :
         self.file_name=file_name
 
     def import_csv(self):
-               
+             
         data = []
         with open(self.folder + self.file_name, encoding='ISO-8859-1') as csvfile :
             covidreader = csv.reader(csvfile, delimiter= ';')
             for row in covidreader :
+                i+=1
                 data.append(row)
-               
+                
+            supprime_tete=data.pop(0)      
         return data
         
     def import_json(self):
@@ -22,6 +24,7 @@ class Importation_donnee :
             covidreader = json.load(json_file)
             for row in  covidreader:
                 data.append(row)
+            supprime_tete=data.pop(0)
             return data
 
         

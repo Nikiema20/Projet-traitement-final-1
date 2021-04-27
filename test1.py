@@ -25,8 +25,8 @@ ch2 = ch + ch1
 ch1 = ch1.format(i for i in l)
 l1 = [i for i in l]"""
 
-ch = "{0"+"["+str(5)+"]" + "}; "
-print(ch)
+l = [2,7,855,54,0]
+print(l.index(l[2]))
 
 
 
