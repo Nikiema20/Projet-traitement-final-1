@@ -15,8 +15,9 @@ class TransformationSpatiale(TransformationTable):
 
             #on est dans le cas où on veut les données d'une journée 
             #on parcourt donc chaque ligne et garde les lignes où on a la date qu'on veut 
-        for ligne in table.lignes :
-            if ligne[indice] == str(self.liste_numeros ): #un problème pourrait se poser lors du test, comment entrons nous date_debut et fin pour la comparaison
+        for numero in self.liste_numeros:
+          for ligne in table.lignes :
+            if ligne[indice] == str(numero): #un problème pourrait se poser lors du test, comment entrons nous date_debut et fin pour la comparaison
                 L.append(ligne)
            
        
