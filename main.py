@@ -40,8 +40,8 @@ if __name__ == "__main__":
 """
   #print(b.traiter_table(table_covid_hospit_incid_reg))"""
  # print(b.traiter_table(table_covid_hospit_incid_reg)) departement
-  #k= TransformationSpatiale(44)
- # print(k.traiter_table(list_lignes_donnees_hospitalieres_covid, 'departement' ))
+  #k= TransformationSpatiale([6,94,44])
+  #print(k.traiter_table(table_covid_hospit_incid_reg, "numero_region" ))
 
   
   table_donnees_hospitalieres_classe_age_covid = Table(nom_colonnes_donnees_hospitalieres_classe_age_covid, list_lignes_donnees_hospitalieres_classe_age_covid)
