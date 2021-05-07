@@ -64,7 +64,7 @@ for row in lect2 :
       ligne.append(int(row[5]))
       ligne.append(int(row[6]))
       list_lignes_donnees_hospitalieres_covid.append(ligne)
-nom_colonnes_donnees_hospitalieres_covid = ["departement","sexe","jour","hospitalisation","reanimation","rad","décès"]
+nom_colonnes_donnees_hospitalieres_covid = ["numero departement","sexe","jour","hospitalisation","reanimation","rad","décès"]
 fich.close()
 
 # creation table 4 
