@@ -1,5 +1,13 @@
 class Table:
   def __init__(self , nom_col , list_lignes):
+    ''' classe qui permet de definir autrement nos tables initiales
+    attributes
+    __________
+    nom_colonnes: list
+      liste des noms des colonnes 
+    lignes: list[list]
+      liste des lignes de la table 
+    '''
     self.nom_colonnes = nom_col # nom_colonnes est la liste des noms des colonnes de la table 
     self.lignes = list_lignes # list_lignes contiendra la liste des lignes de la tables
   
@@ -10,21 +18,36 @@ class Table:
       self.lignes.insert(position, ligne) # on inserre la liste ne question à cette position
     
   def supprimer_ligne(self , position):
+    ''' suppression d'une ligne d'une table donnee
+    '''
     if position < len(self.lignes -1): # si il existe une ligne à cette position ...
       self.lignes.remove(self.lignes[position]) # on la supprime
 
   def ajouter_colonne(self, nom_colonne , valeurs_colonnes , position_colonne=-1):
+    '''
+    ajout d'une colonne a une table 
+    parameters
+    __________
+    nom_colonne: str
+      nom de la colonne
+    valeurs_colonnes: list
+    '''
     self.nom_colonnes.insert( position_colonne , nom_colonne)
     for i in range(len(self.lignes)):
       self.lignes[i].insert(position_colonne, valeurs_colonnes[i])
   
   def supprimer_colonne(self, position=-1):
+    ''' suppression d'une colonne
+    '''
     if position < len(self.nom_colonnes):
       self.nom_colonnes.remove(self.nom_colonnes[position])
       for i in range(len(self.lignes)):
         self.lignes[i].remove[self.lignes[i][position]]
 
   def __str__(self):
+    '''
+    methode permettant d'afficher une table dans tous ses formats conventionnels
+    '''
     affichage = ""
     for nom_colonne in self.nom_colonnes[:-1]:
       affichage=affichage + nom_colonne+"; "

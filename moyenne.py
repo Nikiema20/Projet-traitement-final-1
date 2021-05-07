@@ -2,8 +2,21 @@ from estimateur_table import EstimateurTable
 import datetime as d 
 from table import Table
 
-class Moyenne(EstimateurTable): # on va afficher le resultat sous forme d'une table 
-    def traiter_table(self, table, list_colonnes): #colonne est une liste contenant les colonnes sur lesquelles on fait le calcul de la moyenne
+class Moyenne(EstimateurTable):  
+    def traiter_table(self, table, list_colonnes):
+        '''
+        methode permettant de calculer la moyenne de variables donnees
+
+        parameters
+        __________
+        table: Table
+            table contenant les variables 
+        list_colonnes: list
+            liste contenant le nom des variables
+        return 
+        ______
+        Table
+        '''
         nom_colonnes_res = []
         list_ligne_moyennes = []
         n=len(table.lignes)
