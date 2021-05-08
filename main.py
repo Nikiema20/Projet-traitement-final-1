@@ -71,7 +71,7 @@ if __name__ == "__main__":
   d2=date(2020,12,27) # on aura les donnes du 19 au 26 car la comparaison est stricte dans la classe transformation temporelle
   t=TransformationTemporelle(d1,d2)
   t1=t.traiter_table(table_donnees_hospitalieres_nouveaux_covid)
-  t2= GetColonnes(["numero departement","jour", "incident hospitalisation"])
+  t2= GetColonnes(["numero_departement","jour", "incident hospitalisation"])
   table_finale=t2.traiter_table(t1)
   #print(table_finale)
 
