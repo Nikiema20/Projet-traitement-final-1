@@ -7,6 +7,7 @@ from importation_donnee import Importation_donnee
 from transformation_spatiale import TransformationSpatiale
 from moyenne import Moyenne
 from somme import Somme
+from normalisation import Normalisation
 
 #from graphique import Graphique
 #from clustering import Clustering
@@ -71,8 +72,8 @@ if __name__ == "__main__":
   d2=date(2020,12,27) # on aura les donnes du 19 au 26 car la comparaison est stricte dans la classe transformation temporelle
   t=TransformationTemporelle(d1,d2)
   t1=t.traiter_table(table_donnees_hospitalieres_nouveaux_covid)
-  t2= GetColonnes(["numero departement","jour", "incident hospitalisation"])
-  table_finale=t2.traiter_table(t1)
+ # t2= GetColonnes(["numero departement","jour", "incident hospitalisation"])
+ # table_finale=t2.traiter_table(t1)
   #print(table_finale)
 
   #question 3: evolution de la moyenne des nouvelles hospitalisations journalieres de cette semaine par rapport à la semaine derniere
@@ -91,12 +92,12 @@ if __name__ == "__main__":
  
  
  
-  """a= GetColonnes(['nom_region','reanimation'])
-  #print(a.traiter_table(table_covid_hospit_incid_reg))
+  a= GetColonnes(['nom_region','reanimation'])
+ # print(a.traiter_table(table_covid_hospit_incid_reg))
   d1= date(2021,1,1)
   d2= date(2021,1,31)
   b= TransformationTemporelle(d1,d2)
-  """
+  
   
   
   #m = Moyenne()
@@ -108,21 +109,31 @@ if __name__ == "__main__":
   #print(res)
   a=GetColonnes(["nom_region","numero_region"])
   b=a.traiter_table(table_covid_hospit_incid_reg)
-  c=Jointure("numero_region","reg")
-  d=c.traiter(table_covid_hospit_incid_reg,table_donnees_hospitalieres_classe_age_covid)
-  #print(d)
+ # c=Jointure("numero_region","reg")
+  #d=c.traiter(table_covid_hospit_incid_reg,table_donnees_hospitalieres_classe_age_covid)
+ # print(d)
   
-  moy = Aggregation("sum")
-  b=moy.traiter_table('donnees_hospitalieres_covid','reanimation','jour')
+ # moy = Aggregation("sum")
+ # b=moy.traiter_table('donnees_hospitalieres_covid','reanimation','jour')
   #print(b)
-  r = v.execute(b)
-  for i in r:
-    print(i)
+#  r = v.execute(b)
+ # for i in r:
+  #  print(i)
   
 
 
+ ## Normalisation de donnée
+  n= GetColonnes(['hospitalisation','reanimation','rad','décès'])
+  table_donnees_hospitalieres_covid= n.traiter_table(table_donnees_hospitalieres_covid)
+ # print(table_donnees_hospitalieres_covid)
+  p=['hospitalisation','reanimation','rad','décès']
+  m = Moyenne()
+  res = m.traiter_table(table_donnees_hospitalieres_covid,p)
  
-
+  q=Normalisation(res)
+  print(q.traiter_table(table_donnees_hospitalieres_covid))
+  
+ # print(table_donnees_hospitalieres_covid.lignes[0][1])
   
   
 
