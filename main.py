@@ -110,7 +110,7 @@ if __name__ == "__main__":
   b=a.traiter_table(table_covid_hospit_incid_reg)
   c=Jointure("numero_region","reg")
   d=c.traiter(table_covid_hospit_incid_reg,table_donnees_hospitalieres_classe_age_covid)
-  print(d)
+  #print(d)
   
 
 
