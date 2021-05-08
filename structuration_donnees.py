@@ -42,7 +42,7 @@ for row in lect1 :
     ligne.append(int(row[5]))
     ligne.append(int(row[6]))
     list_lignes_donnees_hospitalieres_classe_age_covid.append(ligne)
-nom_colonnes_donnees_hospitalieres_classe_age_covid = ["reg","classe_age","jour","hospitalisation","reanimation","rad","décès"]
+nom_colonnes_donnees_hospitalieres_classe_age_covid = ["numero_region","classe_age","jour","hospitalisation","reanimation","rad","décès"]
 fich.close()
 
 
@@ -65,7 +65,7 @@ for row in lect2 :
       ligne.append(int(row[5]))
       ligne.append(int(row[6]))
       list_lignes_donnees_hospitalieres_covid.append(ligne)
-nom_colonnes_donnees_hospitalieres_covid = ["numero departement","sexe","jour","hospitalisation","reanimation","rad","décès"]
+nom_colonnes_donnees_hospitalieres_covid = ["numero_departement","sexe","jour","hospitalisation","reanimation","rad","décès"]
 fich.close()
 
 # creation table 4 
@@ -82,7 +82,7 @@ for row in lect3 :
       ligne.append(date_ligne)
       ligne.append(int(row[2]))
       list_lignes_donnees_hospitalieres_etablissements_covid.append(ligne)
-nom_colonnes_donnees_hospitalieres_etablissements_covid = ["numero departement" , "jour", "nombre"]
+nom_colonnes_donnees_hospitalieres_etablissements_covid = ["numero_departement" , "jour", "nombre"]
 fich.close()
 
 
@@ -102,7 +102,7 @@ for row in lect4 :
       ligne.append(int(row[4]))
       ligne.append(int(row[5]))
       list_lignes_donnees_hospitalieres_nouveaux_covid.append(ligne)
-nom_colonnes_donnees_hospitalieres_nouveaux_covid = ["numero departement" , "jour", "incident hospitalisation" , "incident reanimation" , "incident décès" , "incident rad"]
+nom_colonnes_donnees_hospitalieres_nouveaux_covid = ["numero_departement" , "jour", "incident hospitalisation" , "incident reanimation" , "incident décès" , "incident rad"]
 fich.close()
 
 
