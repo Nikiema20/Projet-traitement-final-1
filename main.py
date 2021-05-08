@@ -112,6 +112,13 @@ if __name__ == "__main__":
   d=c.traiter(table_covid_hospit_incid_reg,table_donnees_hospitalieres_classe_age_covid)
   #print(d)
   
+  moy = Aggregation("sum")
+  b=moy.traiter_table('donnees_hospitalieres_covid','reanimation','jour')
+  #print(b)
+  r = v.execute(b)
+  for i in r:
+    print(i)
+  
 
 
  
