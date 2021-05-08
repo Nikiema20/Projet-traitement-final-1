@@ -1,5 +1,6 @@
 import csv
 from datetime import date
+import json
 
 #from graphique import Graphique
 #from clustering import Clustering
@@ -105,5 +106,38 @@ nom_colonnes_donnees_hospitalieres_nouveaux_covid = ["numero departement" , "jou
 fich.close()
 
 
+#table json
+with open("VacancesScolaires.json") as json_file :
+      covidreader = json.load(json_file)
+data_calendrier=covidreader["Calendrier"]
+liste_ligne_calendrier_vacancesScolaire=[]
+for i in range (len(data_calendrier)):
+      cle=[]
+      valeur=[]
+      for key,value in data_calendrier[i].items():
+            valeur.append(value)
+            if not key in cle:
+                  cle.append(key)
+      liste_ligne_calendrier_vacancesScolaire+=[valeur]
+nom_colonnes_calendrier_vacancesScolaire=[]
+nom_colonnes_calendrier_vacancesScolaire=cle
+#print(nom_colonnes_calendrier_vacancesScolaire)
+#print(liste_ligne_calendrier_vacancesScolaire)
+
+
+data_academie=covidreader["Academie"]
+liste_ligne_academie_vacancesScolaire=[]
+for i in range (len(data_academie)):
+      cle=[]
+      valeur=[]
+      for key,value in data_academie[i].items():
+            valeur.append(value)
+            if not key in cle:
+                  cle.append(key)
+      liste_ligne_academie_vacancesScolaire+=[valeur]
+nom_colonnes_academie_vacancesScolaire=[]
+nom_colonnes_academie_vacancesScolaire=cle
+#print(nom_colonnes_academie_vacancesScolaire)
+#print(liste_ligne_academie_vacancesScolaire)
     
 

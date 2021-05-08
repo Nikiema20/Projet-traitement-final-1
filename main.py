@@ -20,6 +20,13 @@ from structuration_donnees import nom_colonnes_donnees_hospitalieres_etablisseme
 from structuration_donnees import nom_colonnes_donnees_hospitalieres_nouveaux_covid
 from structuration_donnees import list_lignes_donnees_hospitalieres_etablissements_covid
 from structuration_donnees import list_lignes_donnees_hospitalieres_nouveaux_covid 
+from structuration_donnees import liste_ligne_academie_vacancesScolaire
+from structuration_donnees import nom_colonnes_academie_vacancesScolaire
+from structuration_donnees import liste_ligne_calendrier_vacancesScolaire
+from structuration_donnees import nom_colonnes_calendrier_vacancesScolaire
+from jointure import Jointure
+
+
 
 
 
@@ -32,12 +39,20 @@ if __name__ == "__main__":
   #nom_colonnes_donnees_hospitalieres_etablissement_covid=["numero departement","jour","nombre"]
   #nom_colonnes_donnees_hospitalieres_nouveaux_covid = ["numero departement" , "jour", "incident hospitalisation" , "incident reanimation" , "incident décès" , "incident rad"]
 
+  #colonnes provenant du fichier json
+  #nom_colonnes_academie_vacancesScolaire=['id', 'Code_Dpt', 'Dpt', 'Region', 'Academie', 'Zone', 'NomAcademie', 'Departement']
+  #nom_colonnes_calendrier_vacancesScolaire=['id', 'Description', 'DateDebut', 'DateFin', 'Zone', 'annee_scolaire', 'Debut', 'Fin']
+  
+  
   table_covid_hospit_incid_reg = Table(nom_colonnes_covid_hospit_incid_reg , list_lignes_covid_hospit_incid_reg)
   table_donnees_hospitalieres_classe_age_covid = Table(nom_colonnes_donnees_hospitalieres_classe_age_covid, list_lignes_donnees_hospitalieres_classe_age_covid)
   table_donnees_hospitalieres_covid = Table(nom_colonnes_donnees_hospitalieres_covid, list_lignes_donnees_hospitalieres_covid)
   table_donnees_hospitalieres_etablissements_covid = Table(nom_colonnes_donnees_hospitalieres_etablissements_covid , list_lignes_donnees_hospitalieres_etablissements_covid)
   table_donnees_hospitalieres_nouveaux_covid = Table(nom_colonnes_donnees_hospitalieres_nouveaux_covid , list_lignes_donnees_hospitalieres_nouveaux_covid)
-
+  table_academie_vacancesScolaire= Table(nom_colonnes_academie_vacancesScolaire,liste_ligne_academie_vacancesScolaire)
+  table_calendrier_vacancesScolaire= Table(nom_colonnes_calendrier_vacancesScolaire, liste_ligne_calendrier_vacancesScolaire)
+  
+  
   # Les donnees des regions et des departements s'etendent du 18 mars 2020 au 3 mars 2021
   
   #Question 1: nombre total d'hospitalisation du au covid
@@ -47,7 +62,7 @@ if __name__ == "__main__":
   n=Somme()
   list_col = [ "hospitalisation"]
   res1= n.traiter_table(table_donnees_hospitalieres_classe_age_covid,list_col)
-  print(res1)
+  #print(res1)
 
 
   #question 2: le nombre de nouvelles hospitalisations durant les 7 derniers jours dans chaque département
@@ -58,7 +73,7 @@ if __name__ == "__main__":
   t1=t.traiter_table(table_donnees_hospitalieres_nouveaux_covid)
   t2= GetColonnes(["numero departement","jour", "incident hospitalisation"])
   table_finale=t2.traiter_table(t1)
-  print(table_finale)
+  #print(table_finale)
 
   #question 3: evolution de la moyenne des nouvelles hospitalisations journalieres de cette semaine par rapport à la semaine derniere
   
@@ -69,24 +84,20 @@ if __name__ == "__main__":
   
   
   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
   """a= GetColonnes(['nom_region','reanimation'])
   #print(a.traiter_table(table_covid_hospit_incid_reg))
   d1= date(2021,1,1)
   d2= date(2021,1,31)
   b= TransformationTemporelle(d1,d2)
   """
-  #print(b.traiter_table(table_covid_hospit_incid_reg))"""
-  # print(b.traiter_table(table_covid_hospit_incid_reg)) departement
-  #k= TransformationSpatiale([6,94,44])
-  #print(k.traiter_table(table_covid_hospit_incid_reg, "numero_region" ))
-
   
-  #print(table_donnees_hospitalieres_covid)
-  #covid_hospit=Importation_donnee('P:\\Projet_de_Traitemant\\Projet\\',"donnees_hospitalieres_covid.csv")
-  #df=covid_hospit.import_csv()
-  #df1 = df.pop(0)
-  #print(covid_hospit.import_csv())
-  #print(df)
   
   #m = Moyenne()
   
@@ -95,7 +106,13 @@ if __name__ == "__main__":
   
   
   #print(res)
+  a=GetColonnes(["nom_region","numero_region"])
+  b=a.traiter_table(table_covid_hospit_incid_reg)
+  c=Jointure("numero_region","reg")
+  d=c.traiter(table_covid_hospit_incid_reg,table_donnees_hospitalieres_classe_age_covid)
+  print(d)
   
+
 
  
 
