@@ -109,6 +109,7 @@ if __name__ == "__main__":
   #print(res)
   a=GetColonnes(["nom_region","numero_region"])
   b=a.traiter_table(table_covid_hospit_incid_reg)
+<<<<<<< HEAD
  # c=Jointure("numero_region","reg")
   #d=c.traiter(table_covid_hospit_incid_reg,table_donnees_hospitalieres_classe_age_covid)
  # print(d)
@@ -134,6 +135,13 @@ if __name__ == "__main__":
   print(q.traiter_table(table_donnees_hospitalieres_covid))
   
  # print(table_donnees_hospitalieres_covid.lignes[0][1])
+=======
+  #c=Jointure("numero_region","reg")
+  #d=c.traiter(table_covid_hospit_incid_reg,table_donnees_hospitalieres_classe_age_covid)
+  #print(d)
+
+
+>>>>>>> 9e379334628ea4fbcd62c27a9a598db36903bc9f
   
   
 
