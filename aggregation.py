@@ -14,9 +14,7 @@ class Aggregation(EstimateurTable):
     self.date_fin = str(fin)
   
   def traiter_table(self , nom_table,colonne_estimee, colonne_discriminante): # table est la table de départ sur laquelle on devra effectuer les traitements; nomtable est la table en str
-    #if "numero_departement" in table.nom_colonnes:
     text = "SELECT {}, {}({}) FROM {} WHERE jour > '{}' AND jour < '{}' GROUP BY {}".format(colonne_discriminante, self.estimateur , colonne_estimee, nom_table, self.date_debut, self.date_fin, colonne_discriminante)
-    #res=c.execute(text)
     return(text)
     
 
