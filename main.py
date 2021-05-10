@@ -54,6 +54,7 @@ if __name__ == "__main__":
   table_donnees_hospitalieres_covid = Table(nom_colonnes_donnees_hospitalieres_covid, list_lignes_donnees_hospitalieres_covid)
   table_donnees_hospitalieres_etablissements_covid = Table(nom_colonnes_donnees_hospitalieres_etablissements_covid , list_lignes_donnees_hospitalieres_etablissements_covid)
   table_donnees_hospitalieres_nouveaux_covid = Table(nom_colonnes_donnees_hospitalieres_nouveaux_covid , list_lignes_donnees_hospitalieres_nouveaux_covid)
+  
   table_academie_vacancesScolaire= Table(nom_colonnes_academie_vacancesScolaire,liste_ligne_academie_vacancesScolaire)
   table_calendrier_vacancesScolaire= Table(nom_colonnes_calendrier_vacancesScolaire, liste_ligne_calendrier_vacancesScolaire)
   
@@ -83,6 +84,22 @@ if __name__ == "__main__":
   #question 3: evolution de la moyenne des nouvelles hospitalisations journalieres de cette semaine par rapport à la semaine derniere
   #on fera donc deux courbes pour les comparaisons, une semaine sera consideree comme une succession de 7 jours 
   abscisse=[1,2,3,4,5,6,7]
+
+
+  #question 4:
+  
+  
+  #Question 5: nouvelles admissions en reanimations la semaine après les vacances de Toussaint
+  # Après visualisation de la table des vacances scolaires, les vacances de toussaint d'etalent du 17-10-2020 au 02-11-2020 et ce pour les zones A,B et C
+  # On donnera donc le resultat uniquement sur la zone A
+  deb= TransformationTemporelle(date(2020,11,3),date(2020,11,10))
+  t1= deb.traiter_table(table_donnees_hospitalieres_nouveaux_covid)
+  mid=TransformationSpatiale( [69,38,25,33,63,21,87,86] )
+  fin=mid.traiter_table(t1, "numero_departement")
+  s=Somme()
+  result=s.traiter_table(fin, ["incident reanimation"])
+  print(result)
+    
   
   
 

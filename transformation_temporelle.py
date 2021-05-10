@@ -19,9 +19,11 @@ class TransformationTemporelle(TransformationTable):
             for ligne in table.lignes :
                 if ligne[indice_date]==self.date_debut: #un problème pourrait se poser lors du test, comment entrons nous date_debut et fin pour la comparaison
                     L.append(ligne)
-        else:
+        elif self.date_debut< self.date_fin:
             for ligne in table.lignes:
-                if ligne[indice_date] > self.date_debut and ligne[indice_date] < self.date_fin:
+                if ligne[indice_date] >= self.date_debut and ligne[indice_date] <= self.date_fin:
                     L.append(ligne)
+        else:
+            return "error"
 
         return Table(table.nom_colonnes,L) #ici je veux retourner un objet de type table 
