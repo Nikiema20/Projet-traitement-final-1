@@ -1,6 +1,6 @@
-from travail.table import Table
+from table import Table
 import sqlite3 
-from travail.estimateur_table import EstimateurTable
+from estimateur_table import EstimateurTable
 from datetime import date
 
 

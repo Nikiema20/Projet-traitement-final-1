@@ -1,18 +1,39 @@
-import random as np
-
- 
+mport numpy as np
+import matplotlib.pyplot as plt
 from table import Table
-class Pipeline :
-    def __init__ (self, table):
-        self.table=table
-        #self.variable=list_va
-    def centrage (self, centre_gravite):
-        L=[]
-        m=[]
+ 
+class KMeans :
+    def __init (self, table,nombre_classe):
+        self.table= table
+        self.nombre_classe=nombre_classe
+        self.max_iterations=1000
+        self.nombre_ligne=len(self.table.lignes)
+        self.nombre_colonne=len(self.table.nom_colonnes)
 
-        for ligne in self.table.lignes:
-            for i in range (len(centre_gravite.lignes[0])):
-                m.append(ligne[i]-centre_gravite.lignes[0][i])
 
-            L.append(m)    
-        return Table(centre_gravite.nom_colonnes,L)  
+
+    def moyenne(self,liste):
+
+        somme = 0
+        effectif = len(list)
+        for i in range(effectif):
+            somme = somme + liste[i]
+        moyenne = somme / effectif
+        return moyenne 
+
+
+    def moyenne_ligne(self, tableau):
+
+
+        resu = []
+        for i in range( tableau.nom_colonnes):
+            resu.append(self.moyenne(tableau.lignes[i]))  
+        return resu
+
+    def moyenne_colonne(self, tableau):
+
+        Y = np.asarray(self.tableau.lignes)
+        trans = np.transpose(Y)
+        tab= tolist(trans)
+        resu = self.moyenne_ligne(tab)
+        return resu   
