@@ -78,5 +78,6 @@ if __name__ == "__main__":
   #on fera donc deux courbes pour les comparaisons, une semaine sera consideree comme une succession de 7 jours 
   abscisse=[1,2,3,4,5,6,7]
   
+  
 
 

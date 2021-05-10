@@ -1,6 +1,7 @@
 from estimateur_table import EstimateurTable
 import datetime as d 
 from table import Table
+from transformation_spatiale import TransformationSpatiale
 
 class Somme(EstimateurTable):  
     def traiter_table(self, table, list_colonnes):
@@ -33,3 +34,6 @@ class Somme(EstimateurTable):
         table_somme =Table(nom_colonnes_res , list_ligne_somme)
         
         return(table_somme)
+
+    
+
