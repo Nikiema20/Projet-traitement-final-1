@@ -8,7 +8,9 @@ from transformation_spatiale import TransformationSpatiale
 from moyenne import Moyenne
 from somme import Somme
 from normalisation import Normalisation
-import sqlite3
+import sqlite3 
+from traitement_sql import v
+bases = sqlite3.connect(':memory:')
 from aggregation import Aggregation
 
 #from graphique import Graphique
@@ -73,8 +75,10 @@ if __name__ == "__main__":
   d1=date(2020,12,19)
   d2=date(2020,12,26) # on aura les donnes du 19 au 26 car la comparaison est stricte dans la classe transformation temporelle
   a= Aggregation("SUM", d1, d2)
-  resu= a.traiter_table("donnees_hospitalieres_nouveaux_covid", )
-
+  resu= a.traiter_table("donnees_hospitalieres_nouveaux_covid", "incident_hospitalisation", "numero_departement")
+  r=v.execute(resu)
+  #for i in r:
+  #  print(i)
 
   #question 3: evolution de la moyenne des nouvelles hospitalisations journalieres de cette semaine par rapport à la semaine derniere
   #on fera donc deux courbes pour les comparaisons, une semaine sera consideree comme une succession de 7 jours 

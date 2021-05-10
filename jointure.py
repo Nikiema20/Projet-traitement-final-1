@@ -1,7 +1,7 @@
 import sqlite3 
 import csv
-from travail.traitement_sql import bases
-from travail.traitement_sql import v
+from traitement_sql import bases
+from traitement_sql import v
 from abc import ABC 
 
 class Jointure(ABC) :

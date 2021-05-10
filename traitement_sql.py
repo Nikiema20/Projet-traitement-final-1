@@ -49,7 +49,7 @@ table_donnees_hospitalieres_covid = Table(nom_colonnes_donnees_hospitalieres_cov
 table_donnees_hospitalieres_etablissements_covid = Table(nom_colonnes_donnees_hospitalieres_etablissements_covid , list_lignes_donnees_hospitalieres_etablissements_covid)
 table_donnees_hospitalieres_nouveaux_covid = Table(nom_colonnes_donnees_hospitalieres_nouveaux_covid , list_lignes_donnees_hospitalieres_nouveaux_covid)
 v = bases.cursor()
-v.execute("""CREATE TABLE covid_hospit_incid_reg (jour_text , nom_region_text , numero_region_integer , reanimation_integer)""")
+v.execute("""CREATE TABLE covid_hospit_incid_reg (jour text , nom_region text , numero_region integer , reanimation integer)""")
 l_covid_hospit_incid_reg= []
 for ligne in table_covid_hospit_incid_reg.lignes:
     vrai_ligne = (str(ligne[0]), ligne[1], ligne[2], ligne[3])
@@ -58,7 +58,7 @@ v.executemany("INSERT INTO covid_hospit_incid_reg VALUES (?,?,?,?)", l_covid_hos
   
  
   # création de la deuxième table donnees_hospitalieres_classe_age_covid en sql
-v.execute("""CREATE TABLE donnees_hospitalieres_classe_age_covid (reg_text , classe_age_text, jour text, hospitalisation integer, reanimation integer, rad integer, décès integer) """)
+v.execute("""CREATE TABLE donnees_hospitalieres_classe_age_covid (reg text , classe_age text, jour text, hospitalisation integer, reanimation integer, rad integer, décès integer) """)
 l_donnees_hospitalieres_classe_age_covid=[]
 for ligne in table_donnees_hospitalieres_classe_age_covid.lignes:
     vrai_ligne=(ligne[0],ligne[1],str(ligne[2]),ligne[3], ligne[4],ligne[5],ligne[6])
@@ -73,7 +73,7 @@ v.executemany("INSERT INTO donnees_hospitalieres_classe_age_covid VALUES (?,?,?,
 
   # creation de la table donnees_hospitalieres_covid
 
-v.execute("""CREATE TABLE donnees_hospitalieres_covid(numero_department text , sexe text, jour text, hospitalisation integer, reanimation integer, rad integer, décès integer) """)
+v.execute("""CREATE TABLE donnees_hospitalieres_covid(numero_departement text , sexe text, jour text, hospitalisation integer, reanimation integer, rad integer, décès integer) """)
 
 l_donnees_hospitalieres_covid =[]
 
@@ -84,7 +84,7 @@ v.executemany("INSERT INTO donnees_hospitalieres_covid VALUES (?,?,?,?,?,?,?)", 
 
   # creation de la table donnees_hospitalieres_etablissements_covid
 
-v.execute("""CREATE TABLE donnees_hospitalieres_etablissements_covid(numero_department text , jour text, nombre integer) """)
+v.execute("""CREATE TABLE donnees_hospitalieres_etablissements_covid(numero_departement text , jour text, nombre integer) """)
 l_donnees_hospitalieres_etablissements_covid =[]
 for ligne in table_donnees_hospitalieres_etablissements_covid.lignes:
     vrai_ligne = (ligne[0],str(ligne[1]),ligne[2])
@@ -94,7 +94,7 @@ v.executemany("INSERT INTO donnees_hospitalieres_etablissements_covid VALUES (?,
 
    #creation de la table donnees_hospitalieres_nouveaux_covid
 
-v.execute("""CREATE TABLE donnees_hospitalieres_nouveaux_covid(numero_department text , jour text, incident_hospitalisation integer, incident_reanimation integer, incident_décès integer, incident_rad integer) """)
+v.execute("""CREATE TABLE donnees_hospitalieres_nouveaux_covid(numero_departement text , jour text, incident_hospitalisation integer, incident_reanimation integer, incident_décès integer, incident_rad integer) """)
 
 l_donnees_hospitalieres_nouveaux_covid =[]
 
