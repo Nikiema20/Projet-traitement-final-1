@@ -12,6 +12,7 @@ import sqlite3
 from traitement_sql import v
 bases = sqlite3.connect(':memory:')
 from aggregation import Aggregation
+from graphique import Graphique
 
 #from graphique import Graphique
 #from clustering import Clustering
@@ -83,23 +84,13 @@ if __name__ == "__main__":
 
   #question 3: evolution de la moyenne des nouvelles hospitalisations journalieres de cette semaine par rapport à la semaine derniere
   #on fera donc deux courbes pour les comparaisons, une semaine sera consideree comme une succession de 7 jours 
-  abscisse=[1,2,3,4,5,6,7]
 
+  g=Graphique("incident_hospitalisation","donnees_hospitalieres_nouveaux_covid") # Nous avons rentré des valeurs par défaut pour la semaine à évaluer; cependant, il est possible de choisir pour la semaine qu'on veut
+  res = g.afficher_evolution()
+  # exemple dans lequel on choisit la semaine qu'on veut
+  h = Graphique("incident_hospitalisation","donnees_hospitalieres_nouveaux_covid",date(2020,10,1) , date(2020,10,7))
+  h.afficher_evolution()
 
-  #question 4:
-  
-  
-  #Question 5: nouvelles admissions en reanimations la semaine après les vacances de Toussaint
-  # Après visualisation de la table des vacances scolaires, les vacances de toussaint d'etalent du 17-10-2020 au 02-11-2020 et ce pour les zones A,B et C
-  # On donnera donc le resultat uniquement sur la zone A
-  deb= TransformationTemporelle(date(2020,11,3),date(2020,11,10))
-  t1= deb.traiter_table(table_donnees_hospitalieres_nouveaux_covid)
-  mid=TransformationSpatiale( [69,38,25,33,63,21,87,86] )
-  fin=mid.traiter_table(t1, "numero_departement")
-  s=Somme()
-  result=s.traiter_table(fin, ["incident reanimation"])
-  print(result)
-    
   
   
 
