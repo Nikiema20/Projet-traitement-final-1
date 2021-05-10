@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
-from travail.traitement_sql import bases
-from travail.traitement_sql import v
-from travail.aggregation import Aggregation
+from traitement_sql import bases
+from traitement_sql import v
+from aggregation import Aggregation
 from abc import ABC
 from datetime import date
 from datetime import timedelta
@@ -67,8 +67,7 @@ class Graphique(ABC):
     plt.xlabel("Jours")
     plt.ylabel("taux d'accroissement")
     plt.title("taux d'accroissement du nombre de {} par jour entre les deux semaines allant du {} au  {}".format(self.nom_variable , self.jour_debut , fin_semaine2))
-    plt.show()
-    
+    plt.show() 
 
 
 

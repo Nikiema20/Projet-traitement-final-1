@@ -7,12 +7,13 @@ from importation_donnee import Importation_donnee
 from transformation_spatiale import TransformationSpatiale
 from moyenne import Moyenne
 from somme import Somme
+from graphique import Graphique
 from normalisation import Normalisation
 import sqlite3 
 from traitement_sql import v
 bases = sqlite3.connect(':memory:')
 from aggregation import Aggregation
-from graphique import Graphique
+
 
 #from graphique import Graphique
 #from clustering import Clustering
