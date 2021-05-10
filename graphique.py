@@ -37,7 +37,7 @@ class Graphique(ABC):
     plt.plot(list(range(1,len(liste_semaine2)+1)),liste_semaine2, 'k' ,label = "semaine2".format(self.estimateur , self.nom_variable)) # 'k' signifie que cette ligne sera en noir
     plt.xlabel("Jours")
     plt.ylabel("{} des {}s".format(self.estimateur , self.nom_variable))
-    plt.title("représentation de l'évolution des {} par semaine \n pour les deux semaines allant du {} au ".format(self.nom_variable , str(self.jour_debut),str(fin_semaine2)))
+    plt.title("Représentation de l'évolution des {} par semaine \n pour les deux semaines allant du {} au ".format(self.nom_variable , str(self.jour_debut),str(fin_semaine2)))
     plt.legend()
     plt.show()
 
@@ -66,7 +66,7 @@ class Graphique(ABC):
     plt.plot(list(range(1,len(liste_taux)+1), liste_taux , 'k' )
     plt.xlabel("Jours")
     plt.ylabel("taux d'accroissement")
-    plt.title("taux d'accroissement du nombre de {} par jour \n entre les deux semaines allant du {} au  {}".format(self.nom_variable , self.jour_debut , fin_semaine2))
+    plt.title("Taux d'accroissement du nombre de {} par jour \n entre les deux semaines allant du {} au  {}".format(self.nom_variable , self.jour_debut , fin_semaine2))
     plt.show()
     
 
