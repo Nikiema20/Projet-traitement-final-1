@@ -133,3 +133,81 @@ class KMeans :
             classification.append(m)
                 #classification[indice_individu] = indice_classe
         return classification
+
+        
+    def variance(self, X):
+       
+        somme = 0
+        effectif = len(X)
+        for i in range(effectif):
+            somme = somme + (X[i] - self.moyenne(X))**2
+        variance = somme / effectif
+        return variance
+    
+    def ecart_type(self, X):
+         
+        return (self.variance(X)**0.5)  
+    
+        
+    def moyenne_mobile(self, X, ecart):
+        '''
+        ecart :  le pas
+        '''
+        
+        sortie = [sum(X[0:ecart]) / ecart, ]
+        for i in range(ecart, len(X)):
+            sortie.append(sortie[-1] - X[i - ecart] / ecart + X[i] / ecart)
+        return sortie    
+        
+    
+     
+
+    def moyenne_glissante_tableau(self, X,ecart):
+        """
+        Méthode permettant de calculer la moyenne mobile d'une matrice
+        
+        Parametres
+        ----------
+        X: list
+        fenetre: int (fenetrage de la moyenne glissante)
+        
+        Returns
+        -------
+        Moyenne_mobile: list
+            La moyenne mobile d'une matrice
+        """  
+        
+        Y = np.asarray(X.lignes)
+        trans = np.transpose(Y)
+        Z= trans.tolist()
+        
+        table_moyenne = []
+        for x in Z:
+            table_moyenne.append(self.moyenne_mobile(x,ecart))
+        K = np.asarray(table_moyenne)
+        trans_finale = np.transpose(K)
+        P= trans_finale.tolist()
+        return P
+
+#from transformation_table import TransformationTable
+#from table import Table
+#class Normalisation (TransformationTable):
+   # def __init__(self  , centre_gravite ):
+       # self.centre_gravite=centre_gravite
+        
+    def normalisation (self, table,centre_gravite):
+        L=[]
+       
+       
+        for ligne in table.lignes:
+            j=0
+            m=[]
+            for i in centre_gravite.lignes[0]:
+                k= ligne[j]
+                d=k-i
+                j+=1
+               
+                
+                m.append(d)
+            L.append(m)
+        return Table(centre_gravite.nom_colonnes, L) #print(m)

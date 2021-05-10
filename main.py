@@ -7,13 +7,13 @@ from importation_donnee import Importation_donnee
 from transformation_spatiale import TransformationSpatiale
 from moyenne import Moyenne
 from somme import Somme
-from graphique import Graphique
+#from graphique import Graphique
 from normalisation import Normalisation
 import sqlite3 
 from traitement_sql import v
 bases = sqlite3.connect(':memory:')
 from aggregation import Aggregation
-
+from kmeans import KMeans
 
 #from graphique import Graphique
 #from clustering import Clustering
@@ -86,11 +86,61 @@ if __name__ == "__main__":
   #question 3: evolution de la moyenne des nouvelles hospitalisations journalieres de cette semaine par rapport à la semaine derniere
   #on fera donc deux courbes pour les comparaisons, une semaine sera consideree comme une succession de 7 jours 
 
-  g=Graphique("incident_hospitalisation","donnees_hospitalieres_nouveaux_covid") # Nous avons rentré des valeurs par défaut pour la semaine à évaluer; cependant, il est possible de choisir pour la semaine qu'on veut
-  res = g.afficher_evolution()
+  #g=Graphique("incident_hospitalisation","donnees_hospitalieres_nouveaux_covid") # Nous avons rentré des valeurs par défaut pour la semaine à évaluer; cependant, il est possible de choisir pour la semaine qu'on veut
+  #res = g.afficher_evolution()
   # exemple dans lequel on choisit la semaine qu'on veut
-  h = Graphique("incident_hospitalisation","donnees_hospitalieres_nouveaux_covid",date(2020,10,1) , date(2020,10,7))
-  h.afficher_evolution()
+ # h = Graphique("incident_hospitalisation","donnees_hospitalieres_nouveaux_covid",date(2020,10,1) , date(2020,10,7))
+  #h.afficher_evolution()
+
+  # Question 4 : Kmeans avec k=3 sur les données des departements du mois de janvuers 2021, lisser avec une moyenne glissante de 7 jours
+  # 1-charger les données de departement 
+  table_donnees_hospitalieres_nouveaux_covid = Table(nom_colonnes_donnees_hospitalieres_nouveaux_covid , list_lignes_donnees_hospitalieres_nouveaux_covid)
+  
+  # 1-selectionner les données de janvier 2021
+  d1= date(2021,1,1)
+  d2= date(2021,1,31)
+  b= TransformationTemporelle(d1,d2)
+  donnee_janvier_2021=b.traiter_table(table_donnees_hospitalieres_covid)
+  #print(donnee_janvier_2021)
+  
+  #2- selection les variables quantitatives de la base donnee_janvier_2021
+  p=[ 'hospitalisation', 'reanimation', 'rad', 'décès']
+  n= GetColonnes(p)
+  
+  donnee_janvier_2021_variables_quantitaives=n.traiter_table(table_donnees_hospitalieres_covid)
+ # print(donnee_janvier_2021_variables_quantitaives)
+  
+  #3- lissage des données pour une moyenne glissantes de 7 jours
+  # Création d'une instance Kmean
+  z=KMeans(3)
+  donnee_janvier_glissante=Table(p,z.moyenne_glissante_tableau(donnee_janvier_2021_variables_quantitaives,7))
+  #print(donnee_janvier_glissante)
+  
+  #4- Faire le Kmeans
+  # Centrée les donnes
+  # calcul le centre de gravité
+  m= Moyenne()
+  centre_gravite = m.traiter_table(donnee_janvier_glissante,p)
+  #print(centre_gravite)
+  
+  # - centre les données
+  donnee_janvier_glissante_centre=z.normalisation(donnee_janvier_glissante, centre_gravite)
+  #print(donnee_janvier_glissante_centre)
+  
+  # - inialiser les centres des classse
+  centre_initiale=z.initialisation_centres(donnee_janvier_glissante_centre)
+ # print(centre_initiale)
+
+   # Creation des cluster
+  clusters=z.creation_clusters(donnee_janvier_glissante_centre,centre_initiale)
+ # print(Table(p,clusters))
+  
+  # Nombre individus dans les clusters
+  nombre_classe=z.taille_cluster(clusters)
+  #print(nombre_classe)
+ 
+  
+
 
   # #Question 5: nouvelles admissions en reanimations la semaine après les vacances de Toussaint
   # Après visualisation de la table des vacances scolaires, les vacances de toussaint d'etalent du 17-10-2020 au 02-11-2020 et ce pour les zones A,B et C

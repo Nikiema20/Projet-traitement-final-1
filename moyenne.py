@@ -1,3 +1,4 @@
+import numpy as np
 from estimateur_table import EstimateurTable
 import datetime as d 
 from table import Table
@@ -17,6 +18,7 @@ class Moyenne(EstimateurTable):
         ______
         Table
         '''
+       
         nom_colonnes_res = []
         list_ligne_moyennes = []
         n=len(table.lignes)
