@@ -12,6 +12,7 @@ import sqlite3
 from traitement_sql import v
 bases = sqlite3.connect(':memory:')
 from aggregation import Aggregation
+from graphique import Graphique
 
 #from graphique import Graphique
 #from clustering import Clustering
@@ -82,7 +83,11 @@ if __name__ == "__main__":
 
   #question 3: evolution de la moyenne des nouvelles hospitalisations journalieres de cette semaine par rapport à la semaine derniere
   #on fera donc deux courbes pour les comparaisons, une semaine sera consideree comme une succession de 7 jours 
-  abscisse=[1,2,3,4,5,6,7]
+  g=Graphique("incident_hospitalisation","donnees_hospitalieres_nouveaux_covid") # Nous avons rentré des valeurs par défaut pour la semaine à évaluer; cependant, il est possible de choisir pour la semaine qu'on veut
+  res = g.afficher_evolution()
+  # exemple dans lequel on choisit la semaine qu'on veut
+  h = Graphique("incident_hospitalisation","donnees_hospitalieres_nouveaux_covid",date(2020,10,1) , date(2020,10,7))
+  h.afficher_evolution()
   
   
 
