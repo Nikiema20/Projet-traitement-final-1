@@ -8,6 +8,8 @@ from transformation_spatiale import TransformationSpatiale
 from moyenne import Moyenne
 from somme import Somme
 from normalisation import Normalisation
+import sqlite3
+from aggregation import Aggregation
 
 #from graphique import Graphique
 #from clustering import Clustering
@@ -68,10 +70,10 @@ if __name__ == "__main__":
 
   #question 2: le nombre de nouvelles hospitalisations durant les 7 derniers jours dans chaque département
   # on supposera au vue des donnees que nous sommes à la date du 27-12-2020
-  d1=date(2020,12,18)
-  d2=date(2020,12,27) # on aura les donnes du 19 au 26 car la comparaison est stricte dans la classe transformation temporelle
-  t=TransformationTemporelle(d1,d2)
-  t1=t.traiter_table(table_donnees_hospitalieres_nouveaux_covid)
+  d1=date(2020,12,19)
+  d2=date(2020,12,26) # on aura les donnes du 19 au 26 car la comparaison est stricte dans la classe transformation temporelle
+  a= Aggregation("SUM", d1, d2)
+  resu= a.traiter_table("donnees_hospitalieres_nouveaux_covid", )
 
 
   #question 3: evolution de la moyenne des nouvelles hospitalisations journalieres de cette semaine par rapport à la semaine derniere
