@@ -43,7 +43,7 @@ class KMeans :
     def liste_distance(self,X,Y ):
 
         
-
+        
          
         # On calcule les distances du point à l'ensemble des centres de classe
         liste = []
@@ -60,9 +60,9 @@ class KMeans :
        # return liste      
         
         
-    def initialisation_centres(self, table):
+    def initialisation_centres(self, tables):
                 
-       
+        table=np.array(tables.lignes)
         centres = np.zeros((self.nombre_classe, table.shape[1]))
         for k in range(self.nombre_classe):
             centre = table[np.random.choice(range(table.shape[0]))]
@@ -70,12 +70,12 @@ class KMeans :
         return centres
 
 
-    def creation_clusters(self,  X, centres):
+    def creation_clusters(self,  table, centres):
         '''
          X: array numpy  (matrice des données)
         centres: liste des centres
         '''
-       
+        X=np.array(table.lignes)
         # Création d'une liste contenant l'ensemble des points affectés à chaque cluster
         clusters =[] # [[] for _ in range(self.nombre_classe)]
 
@@ -93,11 +93,12 @@ class KMeans :
         
         
         
-    def nouveau_centres(self, clusters, X):
-                
+    def nouveau_centres(self, clusters, table):
+        X=np.array(table.lignes)       
         # On définit les nouveaux centres comme moyenne des points appartenant à la classe
         centres = np.zeros((self.nombre_classe, X.shape[1]))
         for indice, cluster in enumerate(clusters):
+            #w=Table.traiter_table(X[cluster])
             nouveau_centre = self.moyenne_colonne(X[cluster])
             centres[indice] = nouveau_centre
         return centres
