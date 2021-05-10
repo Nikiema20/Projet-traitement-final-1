@@ -94,7 +94,7 @@ v.executemany("INSERT INTO donnees_hospitalieres_etablissements_covid VALUES (?,
 
    #creation de la table donnees_hospitalieres_nouveaux_covid
 
-v.execute("""CREATE TABLE donnees_hospitalieres_nouveaux_covid(numero department text , jour text, incident_hospitalisation integer, incident_reanimation integer, incident_décès integer, incident_rad integer) """)
+v.execute("""CREATE TABLE donnees_hospitalieres_nouveaux_covid(numero_department text , jour text, incident_hospitalisation integer, incident_reanimation integer, incident_décès integer, incident_rad integer) """)
 
 l_donnees_hospitalieres_nouveaux_covid =[]
 
