@@ -91,6 +91,17 @@ if __name__ == "__main__":
   h = Graphique("incident_hospitalisation","donnees_hospitalieres_nouveaux_covid",date(2020,10,1) , date(2020,10,7))
   h.afficher_evolution()
 
+  # #Question 5: nouvelles admissions en reanimations la semaine après les vacances de Toussaint
+  # Après visualisation de la table des vacances scolaires, les vacances de toussaint d'etalent du 17-10-2020 au 02-11-2020 et ce pour les zones A,B et C
+  # On donnera donc le resultat uniquement sur la zone A
+  deb= TransformationTemporelle(date(2020,11,3),date(2020,11,10))
+  t1= deb.traiter_table(table_donnees_hospitalieres_nouveaux_covid)
+  mid=TransformationSpatiale( [69,38,25,33,63,21,87,86] )
+  fin=mid.traiter_table(t1, "numero_departement")
+  s=Somme()
+  result=s.traiter_table(fin, ["incident reanimation"])
+  print(result)
+
   
   
 
