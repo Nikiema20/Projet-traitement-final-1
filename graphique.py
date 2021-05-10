@@ -33,8 +33,8 @@ class Graphique(ABC):
           liste_semaine2.append(ligne[1])
 
         
-    plt.plot(list(range(1,8)),liste_semaine1 , 'r',label = "semaine1".format(self.estimateur , self.nom_variable)) # 'r' signifie que cette ligne sera en rouge
-    plt.plot(list(range(1,8)),liste_semaine2, 'k' ,label = "semaine2".format(self.estimateur , self.nom_variable)) # 'k' signifie que cette ligne sera en noir
+    plt.plot(list(range(1,len(liste_semaine1)+1)),liste_semaine1 , 'r',label = "semaine1".format(self.estimateur , self.nom_variable)) # 'r' signifie que cette ligne sera en rouge
+    plt.plot(list(range(1,len(liste_semaine2)+1)),liste_semaine2, 'k' ,label = "semaine2".format(self.estimateur , self.nom_variable)) # 'k' signifie que cette ligne sera en noir
     plt.xlabel("Jours")
     plt.ylabel("{} des {}s".format(self.estimateur , self.nom_variable))
     plt.title("représentation de l'évolution des {} par semaine pour les deux semaines allant du {} au ".format(self.nom_variable , str(self.jour_debut),str(fin_semaine2)))
@@ -63,7 +63,7 @@ class Graphique(ABC):
     for i in range(7):
       taux = (liste_semaine2[i]-liste_semaine1[i])/liste_semaine1[i]
       liste_taux.append(taux)
-    plt.plot(list(range(1,8)), liste_taux , 'k' )
+    plt.plot(list(range(1,len(liste_taux)+1), liste_taux , 'k' )
     plt.xlabel("Jours")
     plt.ylabel("taux d'accroissement")
     plt.title("taux d'accroissement du nombre de {} par jour entre les deux semaines allant du {} au  {}".format(self.nom_variable , self.jour_debut , fin_semaine2))
