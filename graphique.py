@@ -66,8 +66,6 @@ class Graphique(ABC):
     plt.plot(list(range(1,len(liste_taux)+1), liste_taux , 'k' )
     plt.xlabel("Jours")
     plt.ylabel("taux d'accroissement")
-    plt.title("taux d'accroissement du nombre de {} par jour entre les deux semaines allant du {} au  {}".format(self.nom_variable , self.jour_debut , fin_semaine2))
-    plt.show() 
     plt.title("Taux d'accroissement du nombre de {} par jour \n entre les deux semaines allant du {} au  {}".format(self.nom_variable , self.jour_debut , str(fin_semaine2)))
     plt.show()
     
