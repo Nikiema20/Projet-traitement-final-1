@@ -7,7 +7,7 @@ from importation_donnee import Importation_donnee
 from transformation_spatiale import TransformationSpatiale
 from moyenne import Moyenne
 from somme import Somme
-#from graphique import Graphique
+from graphique import Graphique
 import sqlite3 
 from traitement_sql import v
 bases = sqlite3.connect(':memory:')
@@ -85,10 +85,8 @@ if __name__ == "__main__":
   #question 3: evolution de la moyenne des nouvelles hospitalisations journalieres de cette semaine par rapport à la semaine derniere
   #on fera donc deux courbes pour les comparaisons, une semaine sera consideree comme une succession de 7 jours 
 
-  #g=Graphique("incident_hospitalisation","donnees_hospitalieres_nouveaux_covid") # Nous avons rentré des valeurs par défaut pour la semaine à évaluer; cependant, il est possible de choisir pour la semaine qu'on veut
-  #res = g.afficher_evolution()
-  # exemple dans lequel on choisit la semaine qu'on veut
- # h = Graphique("incident_hospitalisation","donnees_hospitalieres_nouveaux_covid",date(2020,10,1) , date(2020,10,7))
+  
+  h = Graphique("incident_hospitalisation","donnees_hospitalieres_nouveaux_covid",date(2020,12,14) , date(2020,12,20), "AVG")
   #h.afficher_evolution()
 
   # Question 4 : Kmeans avec k=3 sur les données des departements du mois de janvuers 2021, lisser avec une moyenne glissante de 7 jours
@@ -150,7 +148,7 @@ if __name__ == "__main__":
   fin=mid.traiter_table(t1, "numero_departement")
   s=Somme()
   result=s.traiter_table(fin, ["incident reanimation"])
-  print(result)
+  #print(result)
 
   
   
