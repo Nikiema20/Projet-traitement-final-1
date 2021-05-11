@@ -16,7 +16,8 @@ class Somme(EstimateurTable):
             liste contenant le nom des variables
         return 
         ______
-        Table
+        table_somme:Table
+            table contenant la somme des variables choisies 
         '''
         nom_colonnes_res = []
         list_ligne_somme = []

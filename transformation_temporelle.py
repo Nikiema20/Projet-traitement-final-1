@@ -3,6 +3,13 @@ import datetime as d
 from table import Table
 
 class TransformationTemporelle(TransformationTable):
+    ''' classe qui applique un filtre pour une peridoe donnée
+        attributes
+        _________
+        date_debut: Date
+        date_fin: Date
+
+       '''
     def __init__(self  , debut , fin ): # debut et fin sont de type date.time et on pourra donnc les comparer
         self.date_debut = debut 
         self.date_fin = fin
@@ -10,7 +17,17 @@ class TransformationTemporelle(TransformationTable):
         
 
     def traiter_table(self, table): # table sera une instance de la classe table
-        """ cette methode permet de surcharger la methode de la classe mère et de retourne la tabe de données contenue dans la periode donnée"""
+        ''' methde permettant d'executer le filtre 
+        parameters
+        __________
+        table: Table
+        nom_variable: str
+            nom de la variable sur laquelle on applique le filtre
+
+        return
+        ______
+        Table
+        '''
         L=[]
         indice_date= table.nom_colonnes.index('jour') #la variable qui contient les dates, on prend sa position
         if self.date_debut==self.date_fin:

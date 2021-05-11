@@ -8,7 +8,6 @@ from transformation_spatiale import TransformationSpatiale
 from moyenne import Moyenne
 from somme import Somme
 #from graphique import Graphique
-from normalisation import Normalisation
 import sqlite3 
 from traitement_sql import v
 bases = sqlite3.connect(':memory:')
@@ -42,9 +41,9 @@ if __name__ == "__main__":
    
   #nom_colonnes_covid_hospit_incid_reg = ["jour", "nom_region", "numero_region", "reanimation"]
   #nom_colonnes_donnees_hospitalieres_classe_age_covid = ["reg","classe_age","jour","hospitalisation","reanimation","rad","dÃ©cÃ¨s"]
-  #nom_colonnes_donnees_hospitalieres_covid = ["numero departement","sexe","jour","hospitalisation","reanimation","rad","dÃ©cÃ¨s"]
-  #nom_colonnes_donnees_hospitalieres_etablissement_covid=["numero departement","jour","nombre"]
-  #nom_colonnes_donnees_hospitalieres_nouveaux_covid = ["numero departement" , "jour", "incident hospitalisation" , "incident reanimation" , "incident décès" , "incident rad"]
+  #nom_colonnes_donnees_hospitalieres_covid = ["numero_departement","sexe","jour","hospitalisation","reanimation","rad","dÃ©cÃ¨s"]
+  #nom_colonnes_donnees_hospitalieres_etablissement_covid=["numero_departement","jour","nombre"]
+  #nom_colonnes_donnees_hospitalieres_nouveaux_covid = ["numero_departement" , "jour", "incident hospitalisation" , "incident reanimation" , "incident décès" , "incident rad"]
 
   #colonnes provenant du fichier json
   #nom_colonnes_academie_vacancesScolaire=['id', 'Code_Dpt', 'Dpt', 'Region', 'Academie', 'Zone', 'NomAcademie', 'Departement']

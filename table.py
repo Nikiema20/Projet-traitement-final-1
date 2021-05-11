@@ -1,13 +1,14 @@
 class Table:
-  def __init__(self , nom_col , list_lignes):
-    ''' classe qui permet de definir autrement nos tables initiales
+  ''' classe qui permet de instancier  les tables initiales
     attributes
     __________
     nom_colonnes: list
       liste des noms des colonnes 
     lignes: list[list]
       liste des lignes de la table 
-    '''
+  '''
+  def __init__(self , nom_col , list_lignes):
+    
     self.nom_colonnes = nom_col # nom_colonnes est la liste des noms des colonnes de la table 
     self.lignes = list_lignes # list_lignes contiendra la liste des lignes de la tables
   

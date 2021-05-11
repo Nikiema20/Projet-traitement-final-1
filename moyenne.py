@@ -16,7 +16,8 @@ class Moyenne(EstimateurTable):
             liste contenant le nom des variables
         return 
         ______
-        Table
+        table_moyenne: Table
+            table contenant les moyennes des variables choisies 
         '''
        
         nom_colonnes_res = []

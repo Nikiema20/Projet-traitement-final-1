@@ -3,11 +3,28 @@ import numpy as np
 from table import Table
 import math
 class KMeans :
+    ''' classe permettant de realiser un k-means
+    attributes
+    __________
+    nombre_classe: int
+        nombre de classe
+    '''
     def __init__(self, nombre_classe):
+        '''constructeur
+        '''
         self.nombre_classe=nombre_classe
         self.max_iteration=1000
 
     def moyenne(self,liste):
+        ''' calcul de la moyenne sur une liste donnee
+        attributes
+        _________
+        liste: list
+            liste de valeurs
+        return 
+        ______
+        moyenne: int
+        '''
 
         somme = 0
         effectif = len(liste)
@@ -24,14 +41,33 @@ class KMeans :
 
         
     def moyenne_ligne(self, tableau_liste):
-# tableau =_liste est une liste de liste 
+        ''' methode permettant de calculer la moyenne des lignes d'une table 
+        parameters
+        __________
+        tableau: list[list]
+            jeu de donnees
+        return 
+        ______
+        resu: list
+            moyenne de chaque ligne
+        '''
+
+
         resu = []
         for i in range( len(tableau_liste)):
             resu.append(self.moyenne(tableau_liste[i]))  
         return resu
 
     def moyenne_colonne(self, tableau):
-
+        '''methode permettant de calculer la moyenne des colonnes 
+        parameters
+        _________
+        tableau: list[list]
+            jeu de donnees
+        return 
+        ______
+        resu: list
+        '''
         Y = np.asarray(tableau)
         trans = np.transpose(Y)
         tab= trans.tolist()
@@ -41,8 +77,18 @@ class KMeans :
         
     
     def liste_distance(self,X,Y ):
+        ''' permettant de calculer les distances d'une observation aux centres
+        parameters
+        __________
 
-        
+        X: list
+            l'observation
+        Y: list[list]
+            liste des centres
+        return
+        ______
+        liste: list
+        '''
         
          
         # On calcule les distances du point à l'ensemble des centres de classe
@@ -50,17 +96,25 @@ class KMeans :
         
         for ligne in range(self.nombre_classe):
             somme=0
-            for j in range(len(Y)):
-                somme=somme + math.sqrt((X[j]-Y[ligne][j])**2)
+            for j in range(len(X)):
+                somme=somme + (X[j]-Y[ligne][j])**2
+                somme= math.sqrt(somme)
             liste.append(somme)
-        #return len(Y) #liste.append( somme )
         return liste
-        #for i in range(self.nombre_classe):
-        #    liste.append(math.sqrt(sum([(a-b) ** 2 for a, b in zip(X, Y[i])])))
-       # return liste      
+          
         
         
     def initialisation_centres(self, tables):
+        '''methode permettant d'initialiser de façon aléatore les centres
+        parameters
+        _________
+        tables: Table
+            jeu de donnees
+        return 
+        ______
+        centre: array
+
+        '''
                 
         table=np.array(tables.lignes)
         centres = np.zeros((self.nombre_classe, table.shape[1]))
@@ -72,8 +126,15 @@ class KMeans :
 
     def creation_clusters(self,  table, centres):
         '''
-         X: array numpy  (matrice des données)
-        centres: liste des centres
+         methode pcreant une partition 
+         parameters
+         _________
+         table: Table 
+            jeu de donnees
+        centres: list[list]
+        return 
+        ______
+        clusters: list
         '''
         X=np.array(table.lignes)
         # Création d'une liste contenant l'ensemble des points affectés à chaque cluster
@@ -94,6 +155,17 @@ class KMeans :
         
         
     def nouveau_centres(self, clusters, table):
+        '''calcul des nouveaux centres
+        parameters
+        _________
+        clusters: list[list]
+            la parttion
+        table: Table
+            jeu de donnees
+        return 
+        ______
+        centres: array
+        '''
         X=np.array(table.lignes)       
         # On définit les nouveaux centres comme moyenne des points appartenant à la classe
         centres = np.zeros((self.nombre_classe, X.shape[1]))
@@ -107,6 +179,16 @@ class KMeans :
         
         
     def taille_cluster (self,clusters):
+        ''' methode permettant de definir les tailles des classes
+        parameters
+        __________
+        clusters: list[list]
+        
+        return 
+        ______
+        m: list
+        ''' 
+
         m=[]
         
         for ligne in range(self.nombre_classe):
@@ -151,7 +233,16 @@ class KMeans :
         
     def moyenne_mobile(self, X, ecart):
         '''
-        ecart :  le pas
+        methode permettant de calculer la moyenne mobile pour une liste donnee
+        parameters
+        __________
+        X: list
+            la liste 
+        ecart :  int
+            la fenetre ou le pas
+        return 
+        ______
+        sortie: list
         '''
         
         sortie = [sum(X[0:ecart]) / ecart, ]
@@ -169,7 +260,7 @@ class KMeans :
         Parametres
         ----------
         X: list
-        fenetre: int (fenetrage de la moyenne glissante)
+        ecart: int (fenetrage de la moyenne glissante)
         
         Returns
         -------
@@ -189,16 +280,22 @@ class KMeans :
         P= trans_finale.tolist()
         return P
 
-#from transformation_table import TransformationTable
-#from table import Table
-#class Normalisation (TransformationTable):
-   # def __init__(self  , centre_gravite ):
-       # self.centre_gravite=centre_gravite
+
         
     def normalisation (self, table,centre_gravite):
+        '''methode permettant de normaliser une table 
+        parameters
+        __________
+        table: Table
+            jeu de donnees
+        centre_gravite: Table 
+        return 
+        ______
+        la table centree: Table
+        '''
+    
+        
         L=[]
-       
-       
         for ligne in table.lignes:
             j=0
             m=[]

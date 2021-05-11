@@ -2,18 +2,18 @@ from transformation_table import TransformationTable
 from table import Table
 
 class TransformationSpatiale(TransformationTable):
-    def __init__(self, liste_numeros):
-        ''' classe qui applique un filtre pour un espace donné
+    ''' classe qui applique un filtre pour un espace donné
         attributes
         _________
         liste_numeros: list
             numero des departements ou region qu'on souhaite conserver
-       '''
+    '''
+    def __init__(self, liste_numeros):   
         self.liste_numeros=liste_numeros
 
     def traiter_table(self, table,nom_variable):
        
-        ''' 
+        ''' methde permettant d'executer le filtre 
         parameters
         __________
         table: Table
