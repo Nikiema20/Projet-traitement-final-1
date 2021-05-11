@@ -63,7 +63,7 @@ class Graphique(ABC):
     for i in range(7):
       taux = (liste_semaine2[i]-liste_semaine1[i])/liste_semaine1[i]
       liste_taux.append(taux)
-    plt.plot(list(range(1,len(liste_taux)+1), liste_taux , 'k' )
+    plt.plot(list(range(1,len(liste_taux)+1), liste_taux , 'k' ))
     plt.xlabel("Jours")
     plt.ylabel("taux d'accroissement")
     plt.title("Taux d'accroissement du nombre de {} par jour \n entre les deux semaines allant du {} au  {}".format(self.nom_variable , self.jour_debut , str(fin_semaine2)))
