@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module kmeans</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>kmeans</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:c%3A%5Cusers%5Cdgtcp%5Cdesktop%5Cptd%5Cprojet-traitement-final-1%5Ckmeans.py">c:\users\dgtcp\desktop\ptd\projet-traitement-final-1\kmeans.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="math.html">math</a><br>
+</td><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="kmeans.html#KMeans">KMeans</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="KMeans">class <strong>KMeans</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#KMeans">KMeans</a>(nombre_classe)<br>
+&nbsp;<br>
+classe&nbsp;permettant&nbsp;de&nbsp;realiser&nbsp;un&nbsp;k-means<br>
+attributes<br>
+__________<br>
+nombre_classe:&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;nombre&nbsp;de&nbsp;classe<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="KMeans-__init__"><strong>__init__</strong></a>(self, nombre_classe)</dt><dd><tt>constructeur</tt></dd></dl>
+
+<dl><dt><a name="KMeans-creation_clusters"><strong>creation_clusters</strong></a>(self, table, centres)</dt><dd><tt>&nbsp;methode&nbsp;pcreant&nbsp;une&nbsp;partition&nbsp;<br>
+&nbsp;parameters<br>
+&nbsp;_________<br>
+&nbsp;table:&nbsp;Table&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;jeu&nbsp;de&nbsp;donnees<br>
+centres:&nbsp;list[list]<br>
+return&nbsp;<br>
+______<br>
+clusters:&nbsp;list</tt></dd></dl>
+
+<dl><dt><a name="KMeans-ecart_type"><strong>ecart_type</strong></a>(self, X)</dt></dl>
+
+<dl><dt><a name="KMeans-initialisation_centres"><strong>initialisation_centres</strong></a>(self, tables)</dt><dd><tt>methode&nbsp;permettant&nbsp;d'initialiser&nbsp;de&nbsp;façon&nbsp;aléatore&nbsp;les&nbsp;centres<br>
+parameters<br>
+_________<br>
+tables:&nbsp;Table<br>
+&nbsp;&nbsp;&nbsp;&nbsp;jeu&nbsp;de&nbsp;donnees<br>
+return&nbsp;<br>
+______<br>
+centre:&nbsp;array</tt></dd></dl>
+
+<dl><dt><a name="KMeans-liste_distance"><strong>liste_distance</strong></a>(self, X, Y)</dt><dd><tt>permettant&nbsp;de&nbsp;calculer&nbsp;les&nbsp;distances&nbsp;d'une&nbsp;observation&nbsp;aux&nbsp;centres<br>
+parameters<br>
+__________<br>
+&nbsp;<br>
+X:&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;l'observation<br>
+Y:&nbsp;list[list]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;liste&nbsp;des&nbsp;centres<br>
+return<br>
+______<br>
+liste:&nbsp;list</tt></dd></dl>
+
+<dl><dt><a name="KMeans-moyenne"><strong>moyenne</strong></a>(self, liste)</dt><dd><tt>calcul&nbsp;de&nbsp;la&nbsp;moyenne&nbsp;sur&nbsp;une&nbsp;liste&nbsp;donnee<br>
+attributes<br>
+_________<br>
+liste:&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;liste&nbsp;de&nbsp;valeurs<br>
+return&nbsp;<br>
+______<br>
+moyenne:&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="KMeans-moyenne_colonne"><strong>moyenne_colonne</strong></a>(self, tableau)</dt><dd><tt>methode&nbsp;permettant&nbsp;de&nbsp;calculer&nbsp;la&nbsp;moyenne&nbsp;des&nbsp;colonnes&nbsp;<br>
+parameters<br>
+_________<br>
+tableau:&nbsp;list[list]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;jeu&nbsp;de&nbsp;donnees<br>
+return&nbsp;<br>
+______<br>
+resu:&nbsp;list</tt></dd></dl>
+
+<dl><dt><a name="KMeans-moyenne_glissante_tableau"><strong>moyenne_glissante_tableau</strong></a>(self, X, ecart)</dt><dd><tt>Méthode&nbsp;permettant&nbsp;de&nbsp;calculer&nbsp;la&nbsp;moyenne&nbsp;mobile&nbsp;d'une&nbsp;matrice<br>
+&nbsp;<br>
+Parametres<br>
+----------<br>
+X:&nbsp;list<br>
+ecart:&nbsp;int&nbsp;(fenetrage&nbsp;de&nbsp;la&nbsp;moyenne&nbsp;glissante)<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+Moyenne_mobile:&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;La&nbsp;moyenne&nbsp;mobile&nbsp;d'une&nbsp;matrice</tt></dd></dl>
+
+<dl><dt><a name="KMeans-moyenne_ligne"><strong>moyenne_ligne</strong></a>(self, tableau_liste)</dt><dd><tt>methode&nbsp;permettant&nbsp;de&nbsp;calculer&nbsp;la&nbsp;moyenne&nbsp;des&nbsp;lignes&nbsp;d'une&nbsp;table&nbsp;<br>
+parameters<br>
+__________<br>
+tableau:&nbsp;list[list]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;jeu&nbsp;de&nbsp;donnees<br>
+return&nbsp;<br>
+______<br>
+resu:&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;moyenne&nbsp;de&nbsp;chaque&nbsp;ligne</tt></dd></dl>
+
+<dl><dt><a name="KMeans-moyenne_mobile"><strong>moyenne_mobile</strong></a>(self, X, ecart)</dt><dd><tt>methode&nbsp;permettant&nbsp;de&nbsp;calculer&nbsp;la&nbsp;moyenne&nbsp;mobile&nbsp;pour&nbsp;une&nbsp;liste&nbsp;donnee<br>
+parameters<br>
+__________<br>
+X:&nbsp;list<br>
+&nbsp;&nbsp;&nbsp;&nbsp;la&nbsp;liste&nbsp;<br>
+ecart&nbsp;:&nbsp;&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;la&nbsp;fenetre&nbsp;ou&nbsp;le&nbsp;pas<br>
+return&nbsp;<br>
+______<br>
+sortie:&nbsp;list</tt></dd></dl>
+
+<dl><dt><a name="KMeans-normalisation"><strong>normalisation</strong></a>(self, table, centre_gravite)</dt><dd><tt>methode&nbsp;permettant&nbsp;de&nbsp;normaliser&nbsp;une&nbsp;table&nbsp;<br>
+parameters<br>
+__________<br>
+table:&nbsp;Table<br>
+&nbsp;&nbsp;&nbsp;&nbsp;jeu&nbsp;de&nbsp;donnees<br>
+centre_gravite:&nbsp;Table&nbsp;<br>
+return&nbsp;<br>
+______<br>
+la&nbsp;table&nbsp;centree:&nbsp;Table</tt></dd></dl>
+
+<dl><dt><a name="KMeans-nouveau_centres"><strong>nouveau_centres</strong></a>(self, clusters, table)</dt><dd><tt>calcul&nbsp;des&nbsp;nouveaux&nbsp;centres<br>
+parameters<br>
+_________<br>
+clusters:&nbsp;list[list]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;la&nbsp;parttion<br>
+table:&nbsp;Table<br>
+&nbsp;&nbsp;&nbsp;&nbsp;jeu&nbsp;de&nbsp;donnees<br>
+return&nbsp;<br>
+______<br>
+centres:&nbsp;array</tt></dd></dl>
+
+<dl><dt><a name="KMeans-prediction_classe"><strong>prediction_classe</strong></a>(self, clusters, X)</dt></dl>
+
+<dl><dt><a name="KMeans-taille_cluster"><strong>taille_cluster</strong></a>(self, clusters)</dt><dd><tt>methode&nbsp;permettant&nbsp;de&nbsp;definir&nbsp;les&nbsp;tailles&nbsp;des&nbsp;classes<br>
+parameters<br>
+__________<br>
+clusters:&nbsp;list[list]<br>
+&nbsp;<br>
+return&nbsp;<br>
+______<br>
+m:&nbsp;list</tt></dd></dl>
+
+<dl><dt><a name="KMeans-variance"><strong>variance</strong></a>(self, X)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
