@@ -20,7 +20,6 @@ class Importation_donnee :
         with open(self.folder + self.file_name, encoding='ISO-8859-1') as csvfile :
             covidreader = csv.reader(csvfile, delimiter= ';')
             for row in covidreader :
-                i+=1
                 data.append(row)
                 
             supprime_tete=data.pop(0)      
