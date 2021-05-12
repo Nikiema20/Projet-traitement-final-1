@@ -126,7 +126,7 @@ class KMeans :
 
     def creation_clusters(self,  table, centres):
         '''
-         methode pcreant une partition 
+         methode creant une partition 
          parameters
          _________
          table: Table 
