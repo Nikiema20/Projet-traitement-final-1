@@ -37,6 +37,8 @@ from structuration_donnees import nom_colonnes_donnees_hospitalieres_nouveaux_co
 from structuration_donnees import list_lignes_donnees_hospitalieres_etablissements_covid
 from structuration_donnees import list_lignes_donnees_hospitalieres_nouveaux_covid 
 
+
+
 table_covid_hospit_incid_reg = Table(nom_colonnes_covid_hospit_incid_reg , list_lignes_covid_hospit_incid_reg)
 table_donnees_hospitalieres_classe_age_covid = Table(nom_colonnes_donnees_hospitalieres_classe_age_covid, list_lignes_donnees_hospitalieres_classe_age_covid)
   
@@ -48,6 +50,9 @@ table_donnees_hospitalieres_classe_age_covid = Table(nom_colonnes_donnees_hospit
 table_donnees_hospitalieres_covid = Table(nom_colonnes_donnees_hospitalieres_covid, list_lignes_donnees_hospitalieres_covid)
 table_donnees_hospitalieres_etablissements_covid = Table(nom_colonnes_donnees_hospitalieres_etablissements_covid , list_lignes_donnees_hospitalieres_etablissements_covid)
 table_donnees_hospitalieres_nouveaux_covid = Table(nom_colonnes_donnees_hospitalieres_nouveaux_covid , list_lignes_donnees_hospitalieres_nouveaux_covid)
+# Tous les codes suivants ont pour objectif de transformer les objets Tables créés à l'aide des données initiales, leurs équivalents en SQL
+# On obtiendra donc au final toutes les tables de départ (avec les memes contenus ) mais de nature tables SQL
+
 v = bases.cursor()
 v.execute("""CREATE TABLE covid_hospit_incid_reg (jour text , nom_region text , numero_region integer , reanimation integer)""")
 l_covid_hospit_incid_reg= []
