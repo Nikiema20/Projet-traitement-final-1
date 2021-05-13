@@ -14,12 +14,28 @@ class Table:
   
 
   def ajouter_lignes(self , ligne, position=-1): # l'élément est par défaut ajouté à la fin de la table 
-    """ Cette fonction permet d'ajouter une ligne à une table à la position souhaitée """
+    """ Cette fonction permet d'ajouter une ligne à une table à la position souhaitée 
+     paramètres
+     ___________
+     ligne : list
+     ligne une observation de la table
+     
+     return  :
+         Elle retourne une table
+    """
+    
     if len(ligne)==len(self.nom_colonnes):  # si on a bien un meme nombre de colonnes que la table de départ...
       self.lignes.insert(position, ligne) # on inserre la liste ne question à cette position
     
   def supprimer_ligne(self , position):
     ''' suppression d'une ligne d'une table donnee
+    paramètres
+    ___________
+    position : int
+    prendre la position de la ligne à supprimer
+    
+    return :
+        Elle retourne une table
     '''
     if position < len(self.lignes -1): # si il existe une ligne à cette position ...
       self.lignes.remove(self.lignes[position]) # on la supprime
@@ -32,6 +48,9 @@ class Table:
     nom_colonne: str
       nom de la colonne
     valeurs_colonnes: list
+    
+    return :
+        Elle retourne une table
     '''
     self.nom_colonnes.insert( position_colonne , nom_colonne)
     for i in range(len(self.lignes)):
@@ -48,6 +67,9 @@ class Table:
   def __str__(self):
     '''
     methode permettant d'afficher une table dans tous ses formats conventionnels
+    
+    return : 
+        Elle retourne une table 
     '''
     affichage = ""
     for nom_colonne in self.nom_colonnes[:-1]:

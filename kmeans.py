@@ -108,11 +108,11 @@ class KMeans :
         '''methode permettant d'initialiser de façon aléatore les centres
         parameters
         _________
-        tables: Table
+        tables: table
             jeu de donnees
         return 
         ______
-        centre: array
+        centres: array
 
         '''
                 
@@ -126,7 +126,7 @@ class KMeans :
 
     def creation_clusters(self,  table, centres):
         '''
-         methode pcreant une partition 
+         methode creant une partition 
          parameters
          _________
          table: Table 
@@ -159,7 +159,7 @@ class KMeans :
         parameters
         _________
         clusters: list[list]
-            la parttion
+            la parttion 
         table: Table
             jeu de donnees
         return 
@@ -198,12 +198,19 @@ class KMeans :
                      somme+=1
             m.append(somme) #print(j[ligne])
         return m       
-                #if ligne==clusters:
-                 #  somme+=1
-           # m.append(somme)
-        #return m
+                
     
     def prediction_classe(self, clusters, X):
+        ''' methode permettant de predit les classes
+        parameters
+        __________
+        clusters: list[list]
+        X : table
+        
+        return 
+        ______
+        classification: list
+        ''' 
                
         # On crée la liste des clusters en affectant à chaque individu sa classe
         
@@ -218,6 +225,15 @@ class KMeans :
 
         
     def variance(self, X):
+        ''' methode permettant de definir la variance 
+        parameters
+        __________
+        X: list[list]
+        
+        return 
+        ______
+        variance: list
+        ''' 
        
         somme = 0
         effectif = len(X)
@@ -259,7 +275,7 @@ class KMeans :
         
         Parametres
         ----------
-        X: list
+        X: list[list]
         ecart: int (fenetrage de la moyenne glissante)
         
         Returns

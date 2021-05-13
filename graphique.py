@@ -7,13 +7,43 @@ from datetime import date
 from datetime import timedelta
 
 class Graphique(ABC):
+  '''
+    Cette classe permet de faire les representation graphique de notre jeu de donnée
+    
+    attributes :
+    __________
+    nom_variable : list
+    list contenant le nom des variables
+    
+    nom_table_dep : Table
+    une list de list de donnée
+    
+    jour_debut : date
+    indique la date de debut
+    
+    jour_fin : date
+    indique la date de fin
+    
+    estimateur : methode
+    indique la statistique utiliser
+    
+  '''
   def __init__(self, nom_variable, nom_table_dep , jour_debut=date(2020,5,1), jour_fin=date(2020,5,7), estimateur = "SUM" ): # par defaut, l'estimateur recherché est la somme; on pourra utiliser l'estimateur "AVG pour la moyenne "
     self.nom_variable = nom_variable
     self.jour_debut = jour_debut
     self.jour_fin = jour_fin
     self.estimateur = estimateur
     self.table_dep = nom_table_dep
+    
   def afficher_evolution(self):
+    '''
+        cette méthode permet de faire le graphique de l'evolution des données
+        parameter :
+        ________
+        
+        return : Courbe
+        elle retourne une courbe
+    '''
     liste_semaine1 = []
     # remplissions les composants de la semaine 1:
     semaine1= Aggregation(self.estimateur,self.jour_debut,self.jour_fin)
@@ -41,7 +71,15 @@ class Graphique(ABC):
     plt.legend()
     plt.show()
 
-  def afficher_taux(self):    
+  def afficher_taux(self):
+    '''
+        cette méthode permet de faire le graphique de l'evolution des données
+        parameter :
+        ________
+        
+        return : Courbe
+        elle retourne une courbe
+    '''
     liste_semaine1 = []
     # remplissions les composants de la semaine 1:
     semaine1= Aggregation(self.estimateur,self.jour_debut,self.jour_fin)

@@ -113,7 +113,7 @@ for row in lect4 :
       ligne.append(int(row[4]))
       ligne.append(int(row[5]))
       list_lignes_donnees_hospitalieres_nouveaux_covid.append(ligne)
-nom_colonnes_donnees_hospitalieres_nouveaux_covid = ["numero_departement" , "jour", "incident hospitalisation" , "incident reanimation" , "incident décès" , "incident rad"]
+nom_colonnes_donnees_hospitalieres_nouveaux_covid = ["numero_departement" , "jour", "incident_hospitalisation" , "incident_reanimation" , "incident_décès" , "incident_rad"]
 fich.close()
 
 

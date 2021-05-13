@@ -14,6 +14,10 @@ class Importation_donnee :
     def import_csv(self):
         '''
         importation des dossiers csv
+        
+        return : 
+        _____
+        list
         '''
              
         data = []

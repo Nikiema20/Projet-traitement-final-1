@@ -1,4 +1,3 @@
-        
 from transformation_table import TransformationTable
 import datetime as d 
 from table import Table
