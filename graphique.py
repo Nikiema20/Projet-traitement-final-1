@@ -7,28 +7,7 @@ from datetime import date
 from datetime import timedelta
 
 class Graphique(ABC):
-<<<<<<< HEAD
-  '''
-    Cette classe permet de faire les representation graphique de notre jeu de donnée
-    
-    attributes :
-    __________
-    nom_variable : list
-    list contenant le nom des variables
-    
-    nom_table_dep : Table
-    une list de list de donnée
-    
-    jour_debut : date
-    indique la date de debut
-    
-    jour_fin : date
-    indique la date de fin
-    
-    estimateur : methode
-    indique la statistique utiliser
-    
-=======
+
   ''' classe permettant de realiser des graphiques 
   attributes
   __________
@@ -40,8 +19,6 @@ class Graphique(ABC):
   jour_fin: date
   estimateur: str
     estimateur à tracer 
-  
->>>>>>> 124aca1f239d10e82ea394688e28aa2009a14390
   '''
   def __init__(self, nom_variable, nom_table_dep , jour_debut=date(2020,5,1), jour_fin=date(2020,5,7), estimateur = "SUM" ): # par defaut, l'estimateur recherché est la somme; on pourra utiliser l'estimateur "AVG pour la moyenne "
     self.nom_variable = nom_variable
