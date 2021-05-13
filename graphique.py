@@ -7,6 +7,7 @@ from datetime import date
 from datetime import timedelta
 
 class Graphique(ABC):
+<<<<<<< HEAD
   '''
     Cette classe permet de faire les representation graphique de notre jeu de donnée
     
@@ -27,6 +28,20 @@ class Graphique(ABC):
     estimateur : methode
     indique la statistique utiliser
     
+=======
+  ''' classe permettant de realiser des graphiques 
+  attributes
+  __________
+  nom_variable: str
+    variable sur laquelle realiser le graphique
+  table_dep: str (format sql)
+    table fourissant la variable
+  jour_debut: date
+  jour_fin: date
+  estimateur: str
+    estimateur à tracer 
+  
+>>>>>>> 124aca1f239d10e82ea394688e28aa2009a14390
   '''
   def __init__(self, nom_variable, nom_table_dep , jour_debut=date(2020,5,1), jour_fin=date(2020,5,7), estimateur = "SUM" ): # par defaut, l'estimateur recherché est la somme; on pourra utiliser l'estimateur "AVG pour la moyenne "
     self.nom_variable = nom_variable
@@ -101,7 +116,7 @@ class Graphique(ABC):
     for i in range(7):
       taux = (liste_semaine2[i]-liste_semaine1[i])/liste_semaine1[i]
       liste_taux.append(taux)
-    plt.plot(list(range(1,len(liste_taux)+1), liste_taux , 'k' ))
+    plt.plot( list(range(1,len(liste_taux)+1)), liste_taux , 'k' )
     plt.xlabel("Jours")
     plt.ylabel("taux d'accroissement")
     plt.title("Taux d'accroissement du nombre de {} par jour \n entre les deux semaines allant du {} au  {}".format(self.nom_variable , self.jour_debut , str(fin_semaine2)))

@@ -5,6 +5,11 @@ from traitement_sql import v
 from abc import ABC 
 
 class Jointure(ABC) :
+    ''' classe permettant de faire la jointure 
+    attrbutes
+    _________
+    nature: str
+    '''
     def __init__ (self, nature):# la jointure est "inner", "full outer", "left outer" ...
         self.nature = nature # nature est en str
         

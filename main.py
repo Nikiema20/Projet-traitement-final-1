@@ -69,7 +69,11 @@ if __name__ == "__main__":
   n=Somme()
   list_col = [ "hospitalisation"]
   res1= n.traiter_table(table_donnees_hospitalieres_classe_age_covid,list_col)
+<<<<<<< HEAD
  # print(res1)
+=======
+  print(res1)
+>>>>>>> 124aca1f239d10e82ea394688e28aa2009a14390
 
 
   #question 2: le nombre de nouvelles hospitalisations durant les 7 derniers jours dans chaque département
@@ -79,8 +83,13 @@ if __name__ == "__main__":
   a= Aggregation("SUM", d1, d2)
   resu= a.traiter_table("donnees_hospitalieres_nouveaux_covid", "incident_hospitalisation", "numero_departement")
   r=v.execute(resu)
+<<<<<<< HEAD
  # for i in r:
   #  print(i)
+=======
+  for i in r:
+    print(i)
+>>>>>>> 124aca1f239d10e82ea394688e28aa2009a14390
 
   #question 3: evolution de la moyenne des nouvelles hospitalisations journalieres de cette semaine par rapport à la semaine derniere
   #on fera donc deux courbes pour les comparaisons, une semaine sera consideree comme une succession de 7 jours 
@@ -88,6 +97,10 @@ if __name__ == "__main__":
   
   h = Graphique("incident_hospitalisation","donnees_hospitalieres_nouveaux_covid",date(2020,12,14) , date(2020,12,20), "AVG")
   h.afficher_evolution()
+<<<<<<< HEAD
+=======
+  #h.afficher_taux()
+>>>>>>> 124aca1f239d10e82ea394688e28aa2009a14390
 
   # Question 4 : Kmeans avec k=3 sur les données des departements du mois de janvuers 2021, lisser avec une moyenne glissante de 7 jours
   # 1-charger les données de departement 
@@ -147,8 +160,13 @@ if __name__ == "__main__":
   mid=TransformationSpatiale( [69,38,25,33,63,21,87,86] )
   fin=mid.traiter_table(t1, "numero_departement")
   s=Somme()
+<<<<<<< HEAD
   result=s.traiter_table(fin, ["incident_reanimation"])
  # print(result)
+=======
+  result=s.traiter_table(fin, ["incident reanimation"])
+  print(result)
+>>>>>>> 124aca1f239d10e82ea394688e28aa2009a14390
 
   
   

@@ -11,9 +11,9 @@ class Aggregation(EstimateurTable):
   __________
   estimateur: str
     l'estimation à appliquer 
-  debut: date
+  date_debut: date
     la date de debut 
-  fin: date
+  date_fin: date
     la date de fin
   
   
